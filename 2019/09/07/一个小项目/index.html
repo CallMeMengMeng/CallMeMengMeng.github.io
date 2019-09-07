@@ -9,7 +9,7 @@
 
 
 
-<title>U盘分区合并 | ReyesMeng&#39;s Blog</title>
+<title>一个持续半年的小项目 | ReyesMeng&#39;s Blog</title>
 
 
 
@@ -109,73 +109,11 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">U盘分区合并</h1>
+            <h1 class="post-title">一个持续半年的小项目</h1>
             
                 <div class="post-meta">
                     
@@ -184,7 +122,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">September 1, 2019&nbsp;&nbsp;18:22:35</a>
+                        Date: <a href="#">September 7, 2019&nbsp;&nbsp;12:34:05</a>
                         </span>
                     
                     
@@ -201,26 +139,19 @@
 
         <div class="post-content">
             <blockquote>
-<p>前段时间在U盘中安装了个Kali Linux<a href="https://callmemengmeng.github.io/2019/08/23/L-Linux%E7%9A%84%E7%AE%80%E6%B4%81%E6%88%91%E5%9C%A8U%E7%9B%98%E5%AE%89%E8%A3%85Kalili-linux/">(关于这件事可以扒拉前面的博客)</a>，某人迈出了通向“脚本小崽子”的第一步，于是睡前也不看书了，瞪着小眼研究Kali。然乐极生悲，忘记系统盘的存在直接拔出，遂使得系统数据损坏而只得格式化重装矣。没有什么一帆风顺的事情，使用Windows自带的磁盘格式化软件可以执行“删除卷”操作，但依旧显示为两个分区。无奈“狗狗”一下后豁然开朗。</p>
+<p>二零一九年还剩三分之一，回顾前面那三分之二时发现，占大头儿的是和几个朋友搞的小项目。我们谋划着让无人机不仅能九天揽月，还得下海擒蛟。年前初步策划时觉得这个任务挺难，但还是可以实现的，后来随着计划的推进，各种大坑纷至沓来。行路难！行路难！需求说要防水，于是便做出了这个防水外壳。</p>
 </blockquote>
-<h2 id="预期目标"><a href="#预期目标" class="headerlink" title="预期目标"></a>预期目标</h2><ul>
-<li>将U盘分区合并。</li>
-</ul>
-<h2 id="分区合并"><a href="#分区合并" class="headerlink" title="分区合并"></a>分区合并</h2><h3 id="材料准备"><a href="#材料准备" class="headerlink" title="材料准备"></a>材料准备</h3><ul>
-<li>我那可怜的便宜U盘；</li>
-<li>我的联想笔电。</li>
-</ul>
-<h3 id="合并操作"><a href="#合并操作" class="headerlink" title="合并操作"></a>合并操作</h3><ul>
-<li>使用按键“Win+R”打开运行界面，键入“cmd”进入命令提示符窗口；</li>
-<li>在命令行中键入“diskpart”进入“DISKPART”交互界面；</li>
-<li>键入“lis dis”查看包括所有挂载盘的磁盘；</li>
-<li>键入“select dis X”，选定磁盘X(X为上一步骤中U盘对应磁盘序号)；</li>
-<li>键入“clean”，删除被选择磁盘X(U盘)下的所有分区；</li>
-<li>键入“create partition primary”来创建主分区；</li>
-<li>键入“active”激活主分区；</li>
-<li>键入“format fs=fat32 quick”快速格式化主分区为FAT32格式；</li>
-<li>键入“exit”推出DISKPART交互界面。</li>
-</ul>
+<div class="sketchfab-embed-wrapper">
+    <iframe title="A 3D model" width="640" height="480" src="https://sketchfab.com/models/9a84e3e10a414652b8f08376166b5000/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    <a href="https://sketchfab.com/3d-models/9a84e3e10a414652b8f08376166b5000?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">机体</a>
+    by <a href="https://sketchfab.com/ReyesMeng?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">ReyesMeng</a>
+</p>
+</div>
+
+<hr>
+<p>其实还有防水底仓、电池仓底板、电机防水外壳和电机防水底板等结构，有空再陆续发布。</p>
 
         </div>
 
@@ -235,7 +166,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://CallMeMengMeng.github.io/2019/09/01/U盘分区合并/">https://CallMeMengMeng.github.io/2019/09/01/U盘分区合并/</a></span>
+                        <span><a href="https://CallMeMengMeng.github.io/2019/09/07/一个小项目/">https://CallMeMengMeng.github.io/2019/09/07/一个小项目/</a></span>
                     </p>
                 
                 
@@ -272,10 +203,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/09/07/一个小项目/">一个持续半年的小项目</a>
             
-            
-            <a class="next" rel="next" href="/2019/08/23/L-Linux的简洁我在U盘安装Kalili-linux/">偏爱WPS for Linux简洁界面的我在U盘安装Kali linux</a>
+            <a class="next" rel="next" href="/2019/09/01/U盘分区合并/">U盘分区合并</a>
             
         </section>
 
