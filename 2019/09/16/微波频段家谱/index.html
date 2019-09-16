@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>微波频段家谱 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/RM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">微波频段家谱</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 16, 2019&nbsp;&nbsp;19:15:04</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<p>无论是<strong>《通信原理》</strong>还是<strong>《微波与天线技术》</strong>课程，洒家初学的时候总是记不住频段的划分，遂记录如下，以便后续查阅。<br></p>
+<h2 id="我国频段表"><a href="#我国频段表" class="headerlink" title="我国频段表"></a>我国频段表</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">符号</th>
+<th align="center">频率</th>
+<th align="center">波段</th>
+<th align="center">波长</th>
+<th align="center">传播特性</th>
+<th align="center">主要用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">甚低频</td>
+<td align="center">VLF</td>
+<td align="center">3 - 30KHz</td>
+<td align="center">超长波</td>
+<td align="center">1KKm - 100Km</td>
+<td align="center">空间波为主</td>
+<td align="center">海岸潜艇通信；远距离通信；超远距离导航</td>
+</tr>
+<tr>
+<td align="center">低频</td>
+<td align="center">LF</td>
+<td align="center">30 - 300KHz</td>
+<td align="center">长波</td>
+<td align="center">10Km - 1Km</td>
+<td align="center">地波为主</td>
+<td align="center">越洋通信；中距离通信；地下岩层通信；远距离导航</td>
+</tr>
+<tr>
+<td align="center">中频</td>
+<td align="center">MF</td>
+<td align="center">0.3 - 3MHz</td>
+<td align="center">中波</td>
+<td align="center">1Km - 100m</td>
+<td align="center">地波与天波</td>
+<td align="center">船用通信；业余无线电通信；移动通信；中距离导航</td>
+</tr>
+<tr>
+<td align="center">高频</td>
+<td align="center">HF</td>
+<td align="center">3 - 30MHz</td>
+<td align="center">短波</td>
+<td align="center">100m - 10m</td>
+<td align="center">天波与地波</td>
+<td align="center">远距离短波通信；国际定点通信</td>
+</tr>
+<tr>
+<td align="center">甚高频</td>
+<td align="center">VHF</td>
+<td align="center">30 - 300MHz</td>
+<td align="center">米波</td>
+<td align="center">10m - 1m</td>
+<td align="center">空间波</td>
+<td align="center">电离层辐射(30 - 60MHz)；流星余迹通信<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>；人造电离层通信(30 - 144MHz)；对空间飞行体通信；移动通信</td>
+</tr>
+<tr>
+<td align="center">超高频</td>
+<td align="center">UHF</td>
+<td align="center">300 - 3GHz</td>
+<td align="center">分米波</td>
+<td align="center">1m - 10cm</td>
+<td align="center">空间波</td>
+<td align="center">小容量微波中继卫星(352 - 420MHz)；对流层散射通信；中容量微波通信</td>
+</tr>
+<tr>
+<td align="center">特高频</td>
+<td align="center">SHF</td>
+<td align="center">3 - 30GHz</td>
+<td align="center">厘米波</td>
+<td align="center">10cm - 1cm</td>
+<td align="center">空间波</td>
+<td align="center">大容量微波中继通信(3600 - 4200MHz)；数字通信；卫星通信；国际海事卫星通信</td>
+</tr>
+<tr>
+<td align="center">极高频</td>
+<td align="center">EHF</td>
+<td align="center">30 - 300GHz</td>
+<td align="center">毫米波</td>
+<td align="center">10mm - 1mm</td>
+<td align="center">空间波</td>
+<td align="center">波导通信</td>
+</tr>
+</tbody></table>
+<br>
+
+<h2 id="我国现用微波分段代号2"><a href="#我国现用微波分段代号2" class="headerlink" title="我国现用微波分段代号2"></a>我国现用微波分段代号<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></h2><table>
+<thead>
+<tr>
+<th align="center">波段代号</th>
+<th align="center">标称波长(cm)</th>
+<th align="center">频率波长(GHz)</th>
+<th align="center">波长范围(cm)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">L</td>
+<td align="center">22</td>
+<td align="center">1 - 2</td>
+<td align="center">30 - 15</td>
+</tr>
+<tr>
+<td align="center">S</td>
+<td align="center">10</td>
+<td align="center">2 - 4</td>
+<td align="center">15 - 7.5</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">5</td>
+<td align="center">4 - 8</td>
+<td align="center">7.5 - 3.75</td>
+</tr>
+<tr>
+<td align="center">X</td>
+<td align="center">3</td>
+<td align="center">8 - 12</td>
+<td align="center">3.75 - 2.5</td>
+</tr>
+<tr>
+<td align="center">Ku</td>
+<td align="center">2</td>
+<td align="center">12 - 18</td>
+<td align="center">2.5 - 1.67</td>
+</tr>
+<tr>
+<td align="center">K</td>
+<td align="center">1.25</td>
+<td align="center">18 - 27</td>
+<td align="center">1.67 - 1.11</td>
+</tr>
+<tr>
+<td align="center">Ka</td>
+<td align="center">0.8</td>
+<td align="center">27 - 40</td>
+<td align="center">1.11 - 0.75</td>
+</tr>
+<tr>
+<td align="center">U</td>
+<td align="center">0.6</td>
+<td align="center">40 - 60</td>
+<td align="center">0.75 - 0.5</td>
+</tr>
+<tr>
+<td align="center">V</td>
+<td align="center">0.4</td>
+<td align="center">60 - 80</td>
+<td align="center">0.5 - 0.375</td>
+</tr>
+<tr>
+<td align="center">W</td>
+<td align="center">0.3</td>
+<td align="center">80 - 100</td>
+<td align="center">0.375 - 0.3</td>
+</tr>
+</tbody></table>
+<br>
+
+<p>除了这些技术参数，洒家也挺好奇这些代号是怎么命名出来的，又为什么这么命名。<br></p>
+<h2 id="波段命名的历史"><a href="#波段命名的历史" class="headerlink" title="波段命名的历史"></a>波段命名的历史</h2><p>波段命名的历史可以追溯到二战期间，人们基于波长对电磁波段进行划分。<br><br>最早出现的雷达用的是米波，这一波段称为<strong>“P(Previous的首字母)”</strong>波段。而用于搜索雷达的电磁波波长为23cm，这一波段被定义为<strong>L(英文Long的首字母)</strong>波段，后来中心波长调整为22cm。当波长为10cm的电磁波被使用后，其波段被称为<strong>S(英文Short的首字母)</strong>波段。<br><br>在配备3cm电磁波的火控雷达出现后，因为X在地图上代表坐标点，所以3cm波长的电磁波便被称为<strong>X</strong>波段。为了结合X波段和S波段的优点，逐渐出现了中心波长为5cm的雷达，这一波段被称为<strong>C(英文Compromise的首字母)</strong>。德国人紧追英国步伐，选择1.5cm波长独立研发自己的雷达系统，德国人把中心波长为1.5cm的电磁波命名为<strong>K(德语Kurz<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>的首字母)</strong>波段。不凑巧的是，这一波段的电磁波恰好处于水蒸气吸收峰值，所以改进的雷达通常使用比K波段波长略长即<strong>“Ka(K-above的简写)”</strong>或略短即<strong>“Ku(K-under的简写)”</strong>的波段。<br><br>这就是波段家族的故事。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">流星余迹通信：<b>“流星余迹”</b>是流星产生的以轨迹为中心的具有反射无线电波特性的柱状电离云。将载有信息的电磁波对准流星余迹，通过其反射实现千里传输的目的。七十年代末美国用于数据收集及军事通信，我国七十年代末开始建立流星余迹专用链路。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">节选自《微波技术基础》，西安电子科技大学，廖承恩著。</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">德语<b>“Kurz”</b>翻译为英语是<b>“Short”</b>。</span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://CallMeMengMeng.github.io/2019/09/16/微波频段家谱/">https://CallMeMengMeng.github.io/2019/09/16/微波频段家谱/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2019/09/15/New-Semester/">New Semester</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
