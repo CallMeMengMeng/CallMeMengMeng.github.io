@@ -8,7 +8,7 @@ mathjax: true
 > UWB Technology
 
 ## Introduction
-**UWB**, aka. **u**ltra **w**ideban**d**, is a radio communications technology for the transmission of signals over a very broad range of frequencies, typically using very low-energy pulses with a duration of a nanosecond or less.
+**UWB**, aka. **u**ltra **w**ide**b**and, is a radio communications technology for the transmission of signals over a very broad range of frequencies, typically using very low-energy pulses with a duration of a nanosecond or less.
 
 This technology generally consists of high bandwidth and most of the time personal area networks are involved with such technology. All the operations of the UWB technology work wirelessly. The processes for which the ultra wide band technology is designed are the multimedia processes. The old or the traditional devices on which UWB technology is applicable are the radar system etc.
 
