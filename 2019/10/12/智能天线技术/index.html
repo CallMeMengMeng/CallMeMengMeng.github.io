@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>智能天线技术 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/RM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">智能天线技术</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 12, 2019&nbsp;&nbsp;20:27:54</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/书摘/">书摘</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>这学期有一门叫做《文献综述》的课程，课上主要教授一些科研论文的行文规范、论文检索与阅读等相关内容。课程形式不重要，有意思的是老师课上布置的一个综述撰写课题——<strong>波束形成</strong>。波束形成是<strong>智能天线</strong>的关键，而这俩货均是<strong>5G通信</strong>中的明星技术。所以咱就把过程中搜集到涉及<strong>智能天线技术</strong>的资料堆砌如下以便翻阅。</p>
+</blockquote>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><font size="6">智</font>能天线(Smart Antenna)系统是由天线阵列、幅相加权、合成器和控制器组成的。每个阵元所接收到的信号先进行幅相加权，其权值是由控制器通过不同的自适应算法来调整的。被加权的信号进行合成，产生阵列输出，也就是形成若干个自适应波束，同时自动跟踪若干个用户。智能天线所形成的波束能实现空间滤波，它使得期望信号的方向具有高增益，而干扰方向近似零陷，以达到抑制和减少干扰的目的。天线阵元的数目$N$与天线配置的方式对智能天线的性能有着直接的影响。<br><br></p>
+<p><img src="//CallMeMengMeng.github.io/2019/10/12/智能天线技术/SmartAntennaSystem.jpg" alt="智能天线系统构成" title="SmartAntennaSystem"></p>
+<p>在<strong>CDMA</strong>通信系统中，我们能按照CDMA编码形式形成响应的天线波束，使不同的用户编码形成不同用户的窄带波束，从而大大提高CDMA通信系统的容量。这是CDMA通信使用智能天线技术的最大优点。<br><br></p>
+<p>目前，已经提出将智能天线用于移动通信系统以提高系统容量，满足日益增多的移动用户的需求。此外，智能天线还能通过提高频谱利用率，扩大覆盖范围，使用多波束跟踪移动用户，补偿孔径失真，降低延迟扩展<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>、<a href="https://baike.baidu.com/item/%E5%A4%9A%E5%BE%84%E8%A1%B0%E8%90%BD" target="_blank" rel="noopener">多径衰落</a>、共道干扰、系统复杂性、误码率和中断概率<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>等来改善系统的性能。<br><br></p>
+<p>智能天线能根据信号环境的变化，根据采用的优化准则(<a href="https://blog.csdn.net/zhihuiyu123/article/details/83245946" target="_blank" rel="noopener">MMSE</a>、<a href="https://blog.csdn.net/ueh286/article/details/101202617" target="_blank" rel="noopener">SNR</a>、LH)自适应地调整加权矢量，相应地天线的方向图，以跟踪信号的变化。不过，由于各种准则的最优权值均收敛于最优维纳解，因此准则的选择并不重要，主要是智能算法的选择，因为算法决定了天线阵列暂态响应的速率和实现电路的复杂度，这是智能天线系统的核心部分。</p>
+<h2 id="智能天线经典算法"><a href="#智能天线经典算法" class="headerlink" title="智能天线经典算法"></a>智能天线经典算法</h2><p>经典的自适应算法按照有无反馈环路，可以分为闭环算法和开环算法两大类。对比而言，闭环算法比较简单，且实现的代价小，但是由于它的收敛速度比较慢，因此限制了它在许多场合的应用；而开环算法虽然收敛速度快，但是受到求解的数值精度和阵列协方差矩阵求逆运算量的限制，且算法比较复杂。开环自适应算法主要有<a href="#LMS">LMS</a>、<a href="#SMI">SMI</a>、<a href="#RLS">RLS</a>等。</p>
+<h3 id="最小均方-LMS-算法"><a href="#最小均方-LMS-算法" class="headerlink" title="最小均方(LMS)算法"></a>最小均方(LMS)算法</h3><p><span id="LMS"><b>LMS</b></span>算法是将最陡下降法应用于MSE(均方差)性能度量的一种估计，可采用数字闭环法来实现。其阵列加权矢量更新的递推公式为$$W(n+1)=W(n)+\mu(e^\ast(n))X(n)$$其中$e^\ast(n)$表示$e(n)$的共轭，$e(n)=y(n)-d(n)=W^H(n)X(n)-d(n)$为天线的暂态误差，$y(n)$为天线阵列输出，$W^H$表示矩阵$W$的共轭转置，$d(n)$为与期望信号有很大相关性的参考信号；$\mu$为步长，是控制收敛速度和稳定性的标量常数因子，当选择$0&lt;\mu&lt;\frac{2}{Tr(R)}$时算法收敛，其中$Tr(R)$为数据自相关矩阵$R$的迹，$R=E[X(n)X^T(n)]$；$X(n)$是在第$n$个时刻对阵列信号的取样，包含期望信号、干扰和白噪声。<br><br></p>
+<p>根据维纳解，基于LMS算法的最优权矢量可以表示为$$W_{opt}=R^{-1}r_{xd}$$式中：$r_{xd}$为参考信号$d(n)$和阵列取样数据$X(n)$的互相关矢量。<br><br></p>
+<p>LMS算法结构简单，但是其收敛速度很慢，且算法的性能对$R$的特征值散布度很敏感。当特征值散布度很大时，算法收敛速度相当慢，有时甚至很难收敛，这也就限制了它在一些信号变化快的场合的应用。</p>
+<h3 id="取样矩阵求逆-SMI-算法"><a href="#取样矩阵求逆-SMI-算法" class="headerlink" title="取样矩阵求逆(SMI)算法"></a>取样矩阵求逆(SMI)算法</h3><p><span id="SMI"><b>SMI</b></span>算法是一种开环计算方法。它通过直接求解阵列协方差矩阵$R$来估计权矢量，能够实现与特征值散布度无关的最快的收敛速度。<br><br></p>
+<p>假设天线为$N$阵元的线阵结构，接收信号$X(n)$(为$1\times{N}$的复向量)可表示为$$X(n)=\displaystyle\sum^{M}_{i=1}S_i(n)a_i(\theta_i)+N(n)$$式中：$S_i(n)$表示第$i$个辐射源的发送信号；$a_i(\theta_i)$是第$i$个辐射源的空间响应函数，$a_i(\theta_i)=e^{j2\pi\frac{d}{\lambda}(i-1)\sin(\theta_i)}$。<br><br></p>
+<p>在实际应用中，可以如下求解：假设$X(n)$的$K$次取样组成一个$N\times K$的矩阵，表示为$$X_K(n)=\begin{bmatrix}<br>{x_1(n)}&amp;{\cdots}&amp;{x_N(n+K-1)}\\<br>{x_2(n)}&amp;{\cdots}&amp;{x_N(n+K-1)}\\<br>{\vdots}&amp;{\ddots}&amp;{\vdots}\\<br>{x_N(n)}&amp;{\cdots}&amp;{x_N(n+K-1)}\\<br>\end{bmatrix}$$则$R(n)=X_K(n)\times{X^T_K(n)}$，$N\times{1}$的互相关矢量为$$Q(n)=X(n)\times{d(n)}$$式中：$d(n)=[d(n)d(n+1){\cdots}d(n+K-1)]^T$是一个$K\times{1}$的列矢量。SMI算法得到的最优解为$$W(n)=R(n)^{-1}\times{Q(n)}=[X^T_K(n)\times{X_K(n)}]^{-1}[X^T_K(n)\times{d(n)}]$$</p>
+<p>分析表明，当取样数$K\geq{2N}$时，它就能收敛到最优值的$3dB$之内。但是当干扰分布广泛时，收敛所需的取样数大。由于该算法的计算复杂性与$N^3$成正比，因此对于小型阵的计算效率很高，而对于大型阵列，它所要求的信号处理能力很强。此外，对于给定的$K$值，由时间平均得到的估计的质量依赖于输入$SNR$，当输入$SNR$下降时，估计质量下降，则需要更多的取样值消除噪音的干扰，才能得到更精确的估计。</p>
+<h3 id="递归最小二乘-RLS-算法"><a href="#递归最小二乘-RLS-算法" class="headerlink" title="递归最小二乘(RLS)算法"></a>递归最小二乘(RLS)算法</h3><p><span id="RLS"><b>RLS</b></span>算法是基于使每一快拍的阵列输出误差平方和最小的准则，即最小二乘(LS)准则，采用数据域递推方法来完成矩阵的求逆运算。它利用了从算法初始化后得到的所有阵列数据信息，其加权矢量更新的递推公式为$${W(k+1)=W(k)-\frac{P(k)e^\ast_k(k+1X(k+1))}{\mu+X^T(k+1)P(k)X(k+1)}}$$ $${e_k(k+1)=W^T(k)X(k+1)-d(k+1)}$$ $$P(k+1)=\frac{1}{\mu}\lbrace P(k)-\frac{P(k)X(k+1)X^T(k+1)P(x)}{\mu+X^T(k+1)P(x)X(k+1)} \rbrace$$式中：$\mu(0&lt;\mu&lt;1)$称为遗忘因子，其作用是削弱旧的数据取样值对后面计算的影响。$\mu$越大，表示旧的数据对后面计算结果的影响越大。<br><br></p>
+<p>RLS算法的收敛速度比较快，其收敛速度对特征值的散布度不敏感。与SMI算法相比，虽然RLS算法的收敛速度不如SMI快，但其计算复杂度明显减小，因此在实际应用中使用较多。<br><br></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">由于到达接收机的信号经过不同路径，有时间差异，所以延迟扩展指最大传输时延和最小传输时延的差值，即最后一个可分辨的时延信号与第一个时延信号到达时间的差值，实际上就是脉冲展宽的时间。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">中断概率是链路容量的另一种表达方式，当链路容量不能满足所要求的用户速率时，就会产生中断事件，这个事件呈概率分布的，取决于链路的平均信噪比及其信道衰落分布模型。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://CallMeMengMeng.github.io/2019/10/12/智能天线技术/">https://CallMeMengMeng.github.io/2019/10/12/智能天线技术/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/01/01/UWB-Technology/">UWB Technology</a>
+            
+            
+            <a class="next" rel="next" href="/2019/09/28/基于劳动谈谈对商品价值量的理解/">基于劳动谈谈对商品价值量的理解</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
