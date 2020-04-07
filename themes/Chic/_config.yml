@@ -27,7 +27,7 @@ avatar: /image/ReyesMeng.jpg
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  Blog: /archives
+#  Blog: /archives
 #  Category:
 #  Tags:
 #  Link:
@@ -35,12 +35,12 @@ links:
 #  Publish:
 #  Trophy:
 #  Gallary:
-#  RSS:
+  RSS: /atom.xml
 #  AliPay:
 #  ZhiHu: https://www.zhihu.com/people/sirice
 #  LinkedIn:
 #  FaceBook:
-#  Twitter: https://twitter.com/98MENGMENG
+#  Twitter: 
 #  Skype:
 #  CodeSandBox:
 #  CodePen:

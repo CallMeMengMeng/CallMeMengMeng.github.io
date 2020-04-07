@@ -87,7 +87,7 @@ mathjax: true
 <p><font face=楷体 size=2 color=gray>“只要天线的形状仅仅是角度的函数，那么它的阻抗与方向图特性都与频率无关。”</font></p><br>
 在这一原理指导下，又发展出螺旋天线、对数周期天线、圆锥等角天线等一系列非频变天线。在苏联解体后的第三个年头，迈克·托马斯和罗纳德·沃尔森引入了连续渐变的圆偶极子天线，表现出优异匹配特性和良好性能。超宽带天线日益发展。
 
-2002年，FCC提出了分配$3.1$~$10.6GHz$作为超宽带通信的频段。
+2002年，FCC提出了分配$3.1$~$10.6GHz$作为超宽带通信的频段。自此，UWB获得众多研究者的关注并依靠其高精度定位等价值大放光彩。
 
 [^1]: Heinrich Hertz, German, "*Electric Waves: Being Researches on the Propagation of Electric Action With Finite Velocity Through Space.*"
 [^2]: Crooks William, England, "*Some Possibilities of Electricity.*"
