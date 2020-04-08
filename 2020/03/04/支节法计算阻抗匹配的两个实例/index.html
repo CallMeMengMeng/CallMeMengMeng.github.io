@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <meta name="description" content="Powered by Hexo.">
@@ -70,7 +71,8 @@
     });
 </script>
 <!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
 
@@ -89,7 +91,7 @@
   })(document);
 </script>
 
-<link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
 </head>
 <body>
     <div class="wrapper">
@@ -107,7 +109,7 @@
                 
                     <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -135,7 +137,7 @@
                 
                     <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
                 
             </div>
         </div>
@@ -263,7 +265,7 @@
 <h2 id="阻抗匹配方法"><a href="#阻抗匹配方法" class="headerlink" title="阻抗匹配方法"></a>阻抗匹配方法</h2><h3 id="四分之一波长阻抗变换器法"><a href="#四分之一波长阻抗变换器法" class="headerlink" title="四分之一波长阻抗变换器法"></a>四分之一波长阻抗变换器法</h3><p>传输线的$\frac{\lambda}{4}$阻抗变换性告诉我们：<strong>无耗传输线上距离为四分之一波长的任意两点处阻抗的乘积均等于传输线特性阻抗的平方</strong>。利用这个性质，可以在纯电阻负载和传输线间加一段长度为$\frac{\lambda}{4}$、特性阻抗为$Z_{01}$的传输线。根据传输线输入阻抗公式可知变换器输入阻抗为：$$Z_{in}=Z_{01}\frac{Z_l+\jmath Z_{01}\tan(\beta\frac{\lambda}{4})}{Z_{01}+\jmath Z_l\tan(\beta\frac{\lambda}{4})}=\frac{Z_{01}^2}{R_l}$$因此传输线的特性阻抗$Z_{01}=\sqrt{Z_0R_l}$，即$Z_{in}=Z_0$时，可以实现阻抗匹配。但是阻抗变换器的长度取决于波长，它只能在中心频率点达到匹配，频偏存在时频率变差，因此这种方法是窄带的。</p>
 <h3 id="单支节调配器法"><a href="#单支节调配器法" class="headerlink" title="单支节调配器法"></a>单支节调配器法</h3><p><font face="楷体" size="2" color="gray"><center>-*- 下面仅仅讨论终端短路的单支节调配器法 -*-</center></font></p>
 
-<h4 id="串联单支节调配器"><a href="#串联单支节调配器" class="headerlink" title="串联单支节调配器"></a>串联单支节调配器</h4><p><img src="//CallMeMengMeng.github.io/2020/03/04/支节法计算阻抗匹配的两个实例/C.jpg" alt="串联短路单支节调配器" title="串联短路单支节调配器"><br>各项参数如下所示：</p>
+<h4 id="串联单支节调配器"><a href="#串联单支节调配器" class="headerlink" title="串联单支节调配器"></a>串联单支节调配器</h4><p><img src="/2020/03/04/%E6%94%AF%E8%8A%82%E6%B3%95%E8%AE%A1%E7%AE%97%E9%98%BB%E6%8A%97%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B/C.jpg" alt="串联短路单支节调配器" title="串联短路单支节调配器"><br>各项参数如下所示：</p>
 <center>
 
 <table>
@@ -324,7 +326,7 @@
 </center>
 调配支节到负载距离$l_1=l_1^{'}+l_{max1}$。
 
-<h4 id="并联单支节调配器"><a href="#并联单支节调配器" class="headerlink" title="并联单支节调配器"></a>并联单支节调配器</h4><p><img src="//CallMeMengMeng.github.io/2020/03/04/支节法计算阻抗匹配的两个实例/B.jpg" alt="并联短路单支节调配器" title="并联短路单支节调配器"><br>并联单支节调配器的阻抗匹配分析方法和串联单支节类似，不过此处我们用导纳来代替阻抗方便分析。各项参数如下所示：</p>
+<h4 id="并联单支节调配器"><a href="#并联单支节调配器" class="headerlink" title="并联单支节调配器"></a>并联单支节调配器</h4><p><img src="/2020/03/04/%E6%94%AF%E8%8A%82%E6%B3%95%E8%AE%A1%E7%AE%97%E9%98%BB%E6%8A%97%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B/B.jpg" alt="并联短路单支节调配器" title="并联短路单支节调配器"><br>并联单支节调配器的阻抗匹配分析方法和串联单支节类似，不过此处我们用导纳来代替阻抗方便分析。各项参数如下所示：</p>
 <center>
 
 <table>
@@ -410,19 +412,19 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://CallMeMengMeng.github.io/2020/03/04/支节法计算阻抗匹配的两个实例/">https://CallMeMengMeng.github.io/2020/03/04/支节法计算阻抗匹配的两个实例/</a></span>
+                        <span><a href="https://callmemengmeng.github.io/2020/03/04/%E6%94%AF%E8%8A%82%E6%B3%95%E8%AE%A1%E7%AE%97%E9%98%BB%E6%8A%97%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B/">https://callmemengmeng.github.io/2020/03/04/%E6%94%AF%E8%8A%82%E6%B3%95%E8%AE%A1%E7%AE%97%E9%98%BB%E6%8A%97%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
                         <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
                 
                      <p class="copyright-item">
                          <span>Slogan:</span>
-                         <span>Vaya con <strong>Dios<strong>.</strong></strong></span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
                      </p>
                 
 
@@ -447,10 +449,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/03/06/还是需要软寿司/">还是需要软寿司</a>
+                <a class="prev" rel="prev" href="/2020/03/06/%E8%BF%98%E6%98%AF%E9%9C%80%E8%A6%81%E8%BD%AF%E5%AF%BF%E5%8F%B8/">还是需要软寿司</a>
             
             
-            <a class="next" rel="next" href="/2020/02/29/SmithChart进行阻抗匹配的两个实例/">SmithChart进行阻抗匹配的两个实例</a>
+            <a class="next" rel="next" href="/2020/02/29/SmithChart%E8%BF%9B%E8%A1%8C%E9%98%BB%E6%8A%97%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B/">SmithChart进行阻抗匹配的两个实例</a>
             
         </section>
 

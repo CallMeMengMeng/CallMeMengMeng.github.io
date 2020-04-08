@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <meta name="description" content="Powered by Hexo.">
@@ -51,7 +52,7 @@
   })(document);
 </script>
 
-<link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
 </head>
 <body>
     <div class="wrapper">
@@ -69,7 +70,7 @@
                 
                     <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -97,7 +98,7 @@
                 
                     <a class="menu-item" href="/about">About</a>
                 
-                    <a class="menu-item" href="https://reyesmeng2.github.io/">Music</a>
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
                 
             </div>
         </div>
@@ -247,11 +248,8 @@
 <p>至此，系统成功安装并运行。</p>
 <hr>
 <h2 id="系统持续化"><a href="#系统持续化" class="headerlink" title="系统持续化"></a>系统持续化</h2><h3 id="储存设置"><a href="#储存设置" class="headerlink" title="储存设置"></a>储存设置</h3><ul>
-<li><p>在命令行中使用下面的指令创建并更改相关储存设置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# fdisk -l</span><br><span class="line">root@kali:~# mkdir -p /mnt/linux</span><br><span class="line">root@kali:~# mount /dev/sdb3 /mnt/linux/</span><br><span class="line">root@kali:~# echo &quot;/ union&quot; &gt; /mnt/linux/persistence.conf</span><br><span class="line">root@kali:~# umount /dev/sdb3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>直接物理断电重启，进入Kali Linux中，此时系统已经可持续化。</p>
-</li>
+<li>在命令行中使用下面的指令创建并更改相关储存设置。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# fdisk -l</span><br><span class="line">root@kali:~# mkdir -p &#x2F;mnt&#x2F;linux</span><br><span class="line">root@kali:~# mount &#x2F;dev&#x2F;sdb3 &#x2F;mnt&#x2F;linux&#x2F;</span><br><span class="line">root@kali:~# echo &quot;&#x2F; union&quot; &gt; &#x2F;mnt&#x2F;linux&#x2F;persistence.conf</span><br><span class="line">root@kali:~# umount &#x2F;dev&#x2F;sdb3</span><br></pre></td></tr></table></figure></li>
+<li>直接物理断电重启，进入Kali Linux中，此时系统已经可持续化。</li>
 </ul>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Primary即主分区，<a href="https://blog.csdn.net/q_l_s/article/details/50150045" target="_blank" rel="noopener">和逻辑分区不同</a>。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
         </div>
@@ -267,19 +265,19 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://CallMeMengMeng.github.io/2019/08/23/L-Linux的简洁我在U盘安装Kalili-linux/">https://CallMeMengMeng.github.io/2019/08/23/L-Linux的简洁我在U盘安装Kalili-linux/</a></span>
+                        <span><a href="https://callmemengmeng.github.io/2019/08/23/L-Linux%E7%9A%84%E7%AE%80%E6%B4%81%E6%88%91%E5%9C%A8U%E7%9B%98%E5%AE%89%E8%A3%85Kalili-linux/">https://callmemengmeng.github.io/2019/08/23/L-Linux%E7%9A%84%E7%AE%80%E6%B4%81%E6%88%91%E5%9C%A8U%E7%9B%98%E5%AE%89%E8%A3%85Kalili-linux/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
                         <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
                 
                      <p class="copyright-item">
                          <span>Slogan:</span>
-                         <span>Vaya con <strong>Dios<strong>.</strong></strong></span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
                      </p>
                 
 
@@ -304,7 +302,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/09/01/U盘分区合并/">U盘分区合并</a>
+                <a class="prev" rel="prev" href="/2019/09/01/U%E7%9B%98%E5%88%86%E5%8C%BA%E5%90%88%E5%B9%B6/">U盘分区合并</a>
             
             
             <a class="next" rel="next" href="/2019/08/18/snowflakes/">Snowflakes</a>
