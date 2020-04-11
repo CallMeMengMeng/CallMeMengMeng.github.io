@@ -10,7 +10,7 @@
 
 
 
-<title>琐言碎语(1) | ReyesMeng&#39;s Blog</title>
+<title>Markdown内容折叠 | ReyesMeng&#39;s Blog</title>
 
 
 
@@ -165,7 +165,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">琐言碎语(1)</h1>
+            <h1 class="post-title">Markdown内容折叠</h1>
             
                 <div class="post-meta">
                     
@@ -174,14 +174,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">March 14, 2020&nbsp;&nbsp;21:18:05</a>
+                        Date: <a href="#">March 24, 2020&nbsp;&nbsp;16:20:50</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Blogs/">Blogs</a>
+                                <a href="/categories/Markdown/">Markdown</a>
                             
                         </span>
                     
@@ -190,14 +190,62 @@
         </header>
 
         <div class="post-content">
-            <blockquote>
-<p>这段时间不在状态，之前天天瞎想，而今干脆不想，流水账生活一天天的小火乱炖。回顾一周既无专业新知之所得，又无哲理心学之所悟，琐言碎语拼凑出“牢骚”二字。</p>
-</blockquote>
-<p>打从正月初一回家至今五十天整，咱Reyes积极响应“宅家”号召，能不出去就不出去，牢牢宅于空中楼阁(<del>字面意思</del>)之中，过着卧室-客厅-厨房三点一线的生活。本小子自诩“宅男”，一不好运动二不热社交(<del>这情况下也无社交可言</del>)，居家每天看看文献、搞搞实验，和家人刷剧唠嗑倒也自在。所以头开始的三十几天热乎劲儿十足，一鼓作气看完了四本专业书和三十多篇中英文论文。此外还拜读了<a href="https://book.douban.com/subject/30446684/" target="_blank" rel="noopener">《六里庄遗事》</a>、<a href="https://book.douban.com/subject/5317075/" target="_blank" rel="noopener">《蔡康永的说话之道》</a>、<a href="http://luxun.zuopinj.com/2231/" target="_blank" rel="noopener">《呐喊》</a>等几本大作，也不务正业翻看了《军鸡》和<a href="https://baike.baidu.com/item/%E7%A5%9E%E5%85%B5%E7%8E%84%E5%A5%87/3896279" target="_blank" rel="noopener">《神兵玄奇》</a>两本漫画书。咱是个俗人，读后写不出豆瓣上大篇幅的阳春白雪，但神兵世界真不应该只是《神兵小将》呈现的样子。</p>
-<p>窗外的世界静谧无声，网上的世界魔幻翻涌，本小子瞪着死鱼眼紧盯巴掌大的屏幕终究难逃瞌睡，不在其位不谋其政，爱咋地咋地自有后人由是家评说。书桌旁窗户临街，卅日来明显察觉到往来的救护车警笛声日渐稀疏，天气回暖，楼角处几株桃树花开花又落。最近企业复工，窗外静寂不再而车辆日渐熙攘，窗内宅而不定更是心向往之。借着帮忙拎菜的由头和父母全副武装动身去超市，才觉双脚踏地和买到“再来一包”干脆面是一样幸福的。</p>
-<p>宅家四十天没剪过头发，大门落锁半步不出丝毫不担心仪容仪表。某天早上耳廓奇痒对镜端详，原来鬓发遮耳矣，拨来弄去只得将之捋于耳后，好嘛，若是再扎一发髻简直和清纯丸子头同款，父母更瞧不上我这<strong>没洗狄拉克，洗后冲天鬏</strong>的揍性，便趁着购物的当儿带我一同去理发。沿途几家理发店，托尼老师比顾客都多，末了探头询问价格——一颗脑袋三十大洋！嚯，长这么些年咱就没剪过超十五元的发，这韭菜也不能这么割哇，合着我这一颗脑袋下去，店内唯二托尼老师中午外卖就有着落了啊。货比三家切走且看，找到一破落小铺子，这才将满头长毛洒落一地。</p>
-<p>宅后生活，从头开始。</p>
+            <hr>
+<p>本小子由<code>Hexo</code>入了<code>Markdown</code>的坑，这种标签标记语言用起来十分方便，其排版极为简洁且支持内嵌<code>HTMl</code>等代码获得更多的效果。作为一名理工狗，咱的文章中不乏代码、表格或者流程图等元素，这些内容很占版面，影响观感，若是将其折叠起来，需要的时候自行展开查看，岂不美哉？</p>
+<p><code>Markdown</code>引入折叠功能需要用到<code>HTML</code>中的<code>&lt;details&gt;</code>标签——用于描述文档或文档某部分的细节。其在<code>HTML</code>中的用法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">&lt;summary&gt;Click me to see more...&lt;&#x2F;summary&gt;</span><br><span class="line">&lt;p&gt; - Yeah! You see me!&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;¡Buenos días! Adiós mis amigos.&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;details&gt;</span><br></pre></td></tr></table></figure>
+<p>其中<code>&lt;details&gt;</code>为折叠语法标签，<code>&lt;summary&gt;</code>为可见标题，上述代码的实际效果如下。</p>
+<details>
+<summary>Click me to see more...</summary>
+<p> - Yeah! You see me!</p>
+<p>¡Buenos días! Adiós mis amigos.</p>
+</details>
 
+<p>在<code>Markdown</code>中使用时，可以省略<code>&lt;p&gt;</code>标签，直接书写被折叠部分的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">&lt;summary&gt;Click to see more...&lt;&#x2F;summary&gt;</span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line">$ sudo shutdown -s -t 0</span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line">&lt;&#x2F;details&gt;</span><br></pre></td></tr></table></figure>
+<p>其实际效果如下。</p>
+<details>
+<summary>Click to see more...</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo shutdown -s -t 0</span><br></pre></td></tr></table></figure>
+</details>
+<br>
+前面已经看到代码折叠效果，下面分别对公式、表格和流程图进行折叠测试：
+
+<ul>
+<li><p>折叠公式</p>
+<details>
+<summary>点击查看公式</summary>
+$$\lambda_{cmn}=\frac{2}{\sqrt{(\frac{m}{a})^2+(\frac{n}{b})^2}}$$
+</details>
+</li>
+<li><p>折叠表格</p>
+<details>
+<summary>点击查看表格</summary>
+然而并不支持Markdown表格(-_-)
+| a | b |
+|:-:|:-:|
+| c | d |
+</details>
+</li>
+<li><p>折叠流程图</p>
+<details>
+<summary>点击查看流程图</summary>
+<div id="flowchart-0" class="flow-chart"></div>
+</details>
+
+</li>
+</ul>
+<p>可以看到，<code>&lt;details&gt;</code>标签并不支持折叠<code>Markdown</code>表格，并且会对流程图进行压缩，要想获得更好的体验仍需进一步调节参数。</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始
+opera1=>operation: operation
+cond=>condition: 准备结束?
+respY=>operation: 是
+respN=>operation: 否
+ed=>end: 结束
+
+st->opera1->cond
+cond(yes)->respY->ed
+cond(no)->respN(right)->opera1</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script>
         </div>
 
         
@@ -211,7 +259,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://callmemengmeng.github.io/2020/03/14/">https://callmemengmeng.github.io/2020/03/14/</a></span>
+                        <span><a href="https://callmemengmeng.github.io/2020/03/24/">https://callmemengmeng.github.io/2020/03/24/</a></span>
                     </p>
                 
                 
@@ -237,6 +285,8 @@
                     
                         <a href="/tags/Blogs/"># Blogs</a>
                     
+                        <a href="/tags/Markdown/"># Markdown</a>
+                    
                         
                 </span>
             </div>
@@ -248,10 +298,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/03/24/">Markdown内容折叠</a>
+                <a class="prev" rel="prev" href="/2020/04/07/">汇编？不会编？会不汇编？</a>
             
             
-            <a class="next" rel="next" href="/2020/03/06/">还是需要软寿司</a>
+            <a class="next" rel="next" href="/2020/03/14/">琐言碎语(1)</a>
             
         </section>
 
