@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>Uplink and Downlink | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/RM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Uplink and Downlink</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 3, 2020&nbsp;&nbsp;11:06:28</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>Uplink and Downlink</p>
+</blockquote>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In telecommunications, the term uplink refers to a wireless connection which is made from the ground to a communications satellite orbiting the Earth or a cell tower. While this transmission signal back to Earth or a Mobile Station (aka. <strong>MS</strong>) is called a downlink.<br></p>
+<p>These terms are usually used in wireless network composed of two main parts which are network side and mobile side. The former houses network equipments such as base station or Node-B or eNB<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.Network part also interfaces with <strong>PSTN</strong> (<em>aka. Public Switched Telephone Network</em>), <strong>ISDN</strong> (<em>Integrated Services Digital Network</em>) and <strong>PSDN</strong> (<em>Public Services Digital Network</em>) so as to provide various services to the users or subscribers. The latter houses mobile phone or smartphone with SIM card or other devices to connect with network for data access.</p>
+<h2 id="What-is-uplink"><a href="#What-is-uplink" class="headerlink" title="What is uplink?"></a>What is uplink?</h2><p>Specificially, this term is used to indicate transmission route from one device to another, such as from mobile terminal to the network side. The frequency used for all the transmissions from Mobile Subscriber Unit to the Base Station is known as uplink frequency. The data transmission direction from MS to BS is called uplink direction.In GSM network, the packet transmission frequency range from $890MHz$ to $915MHz$ is used as uplink frequency. In C band satellite communication operation, $5925MHz$ to $6425MHz$ is uplink band.</p>
+<h2 id="What-is-downlink"><a href="#What-is-downlink" class="headerlink" title="What is downlink?"></a>What is downlink?</h2><p>Contrastingly, the transmission route from network to subscribers is downlink. The frequency used for all the transmissions from Base Station to the Mobile Subscriber Unit (MS) is known as downlink frequency. The direction from BS to MSs is called downlink direction. Besides, TDD (Time Division Duplex) and FDD (Frequency Division Duplex) is used in combination with FDMA (Frequency Division Multiple Access) and TDMA (Time Division Multiple Access) in order to use the bandwidth effectively in wireless systems. Generally $3700MHz$ to $4200MHz$ is used as downlink frequency band in C band satellite network, while in GSM frequency range from $935MHz$ to $960MHz$ is used as downlink frequency range.</p>
+<h2 id="Why-uplink-frequency-is-higher-than-downlink-in-satellite-communications-but-downlink-is-higher-in-GSM-systems"><a href="#Why-uplink-frequency-is-higher-than-downlink-in-satellite-communications-but-downlink-is-higher-in-GSM-systems" class="headerlink" title="Why uplink frequency is higher than downlink in satellite communications but downlink is higher in GSM systems?"></a>Why uplink frequency is higher than downlink in satellite communications but downlink is higher in GSM systems?</h2><p>Well, the reason is simple. </p>
+<p>According to <a href="https://www.researchgate.net/profile/Prasanta_Pradhan2" target="_blank" rel="noopener">Dr. Pradhan</a>, in satellite communication, the transmission signals have to travel across the atmosphere which presents a great deal of attenuation. The higher the frequency, the signals lose more and the more power is needed. Lower frequencies will get reflected by atmospheric bands and cannot penetrate to get through to the satellite. Given that a satellite is a light-weight device which cannot suppport high-power transmitters on it. Consequencely, it transmits at a lower frequency as compared to the earth station which can afford using very high-power transmitters. Thus, the uplink frequency is higher than downlink in satellite communications.</p>
+<p>In GSM systems, our mobile is a portable device which cannot afford high-power transmission as it has a small battery with limited power. The higher the transmitting frequency, the higher is the loss because of the <em>free space path loss</em><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>. Since a mobile station (cellphone) cannot afford to transmit at high power to compensate for this loss, it must transmit on a lower frequency as a lower frequency presents lesser free space path loss. Therefore, mobile-to-base station (uplink) frequencies are lower than base station-to-mobile (downlink) frequencies.</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><em>Node-B</em> is the telecommunications node in particular mobile communication networks, namely those that adhere to the <strong>UMTS</strong> (Universal Mobile Telecommunications System) standard. <em>eNB</em>, aka. Envolved Node-B, is the hardware that is connected to the mobile phone network, like a base transceiver station in GSM networks.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">The <em>free space path loss</em> refers to the attenuation of radio energy between the feedpoints of two antennas that results from the combination of the receiving antenna's capture area plus the obstacle free, line-of-sight path through free space (usually air).</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/01/03/Uplink-and-Downlink/">https://callmemengmeng.github.io/2020/01/03/Uplink-and-Downlink/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/01/04/Abbreviations/">Abbreviations(缩略词)</a>
+            
+            
+            <a class="next" rel="next" href="/2020/01/01/UWB-Technology/">UWB Technology</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

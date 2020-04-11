@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>基于劳动谈谈对商品价值量的理解 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/RM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">基于劳动谈谈对商品价值量的理解</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 28, 2019&nbsp;&nbsp;22:47:54</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="引言1"><a href="#引言1" class="headerlink" title="引言1"></a>引言<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></h2><p><font size="6">商</font>品经济是以<strong>交换为目的</strong>而进行生产的经济形式，不同于以<strong>使用价值</strong>为目的的自然经济。<strong>商品</strong>由劳动产生，是能满足人们某种需要的劳动产品，但<em>不是所有的物品都能被称为劳动产品，不被用作交换的劳动产品也不能叫做商品</em>。商品同时具有<strong>使用价值</strong>和<strong>价值</strong>（即商品的二因素），这一点很重要。<br></p>
+<h2 id="劳动的二重性"><a href="#劳动的二重性" class="headerlink" title="劳动的二重性"></a>劳动的二重性</h2><p>商品是劳动产品的一部分，生产商品的劳动细分为<strong>具体劳动</strong>和<strong>抽象劳动</strong>两种属性。比如中午食堂里的绿豆汤，这碗解渴消暑贼便宜的稀汤寡水就是具体劳动的体现，而这碗汤背后后厨们高深的功力、精妙的火候、独到的豆水配比便是其中藏有的抽象劳动。我们现在知道，任何一种劳动都是抽象劳动与具体劳动的结合，是为<strong>劳动的二重性</strong>（与商品的二因素呼应）。</p>
+<h2 id="从劳动到商品"><a href="#从劳动到商品" class="headerlink" title="从劳动到商品"></a>从劳动到商品</h2><p>根据劳动二重性与商品二因素的对应关系知，具体劳动生产商品的使用价值，抽象劳动生产商品的价值。知道产生始末之后还需要去衡量价值的多少，于是我们引入<strong>价值量</strong>与<strong>剩余价值量</strong>的概念。<br></p>
+<p>仍拿绿豆汤作为例子，其使用价值表现为饮用（<del>不考虑用来洗脸泡脚的极端</del>），其使用价值量由绿豆汤的自然属性决定，而价值表现为出售价格，价值量由所谓社会必要劳动时间（就是业内生产绿豆汤的平均耗时）决定。<br></p>
+<h2 id="讲劳动生产怎能不考虑效率"><a href="#讲劳动生产怎能不考虑效率" class="headerlink" title="讲劳动生产怎能不考虑效率"></a>讲劳动生产怎能不考虑效率</h2><p>正所谓，讲效率，促生产。我们的模型背景是食堂经理要进行绿豆汤革新，为新中国七十周年庆献礼。我们从提高个别劳动生产率和社会总体劳动生产率两个层次，与单位商品和单位时间两个维度来考虑各种情况下生产率带来的影响。<br></p>
+<blockquote>
+<ul>
+<li>层次：个别（企业）劳动生产率<strong>提高</strong><ul>
+<li>维度：单位商品（姑且定为一碗绿豆汤）。<br>在我们的模型中，假设全省食堂绿豆汤标价都是$¥0.5/碗$，现在咱们食堂经理购入新设备，挑选精壮小伙做厨师，产量大幅度提升，原来一分钟倒两碗，现在一分钟能倒五碗。<ul>
+<li><strong>价值量：不变</strong><br>原来一碗绿豆汤的行情价是$¥0.5/碗$，现在自己食堂增加了产量，但物价局又没有因为个别企业调整市面售价，现在不还是$¥0.5/碗$嘛，现在的行情，一碗绿豆汤就值这个价。</li>
+<li><strong>使用价值量：不变</strong><br>这碗绿豆汤的价值在于消暑解渴，那碗绿豆汤的价值仍是消暑解渴，比原来多做出的绿豆汤们仍然是用来消暑解渴。所以对于单位商品（一碗绿豆汤）来说，消暑解渴的使用价值没有增加也没减少。</li>
+</ul>
+</li>
+<li>维度：单位时间（姑且定为一天）。<br>在我们的模型中，假设全省食堂绿豆汤标价都是$¥0.5/碗$，现在咱们食堂经理购入新设备，挑选精壮小伙做厨师，产量大幅度提升，原来一天卖出八百碗，现在一天卖出一千三百碗。<ul>
+<li><strong>价值量：提高</strong><br>这里我建议使用公式理解：<br>$$\mathbf{单位时间的价值量=时间×产量×单价}$$<br>显然，时间不变，单价不变，产量提高，总价值量飙升。</li>
+<li><strong>使用价值量：提高</strong><br>这里使用一个等式便于理解：<br>$$\mathbf{单位时间的使用价值量=产量}$$<br>所以提升产量后，原来一天的绿豆汤能消暑解渴八百人，现在满足一千三百人的需要，食堂甚至可以消暑解渴十一来旅游的游客啦！<br>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>层次：社会总体劳动生产率<strong>提高</strong><ul>
+<li>维度：单位商品（姑且定为一碗绿豆汤）。<br>现在调整我们的模型，假设原先全省食堂绿豆汤标价都是$¥0.5/碗$，现在咱们食堂购入新设备的经理摇身一变为销售讲师，去各个餐厅分享绿豆汤提产的经验方法。现在全省绿豆汤产量大幅度提升，原来一分钟倒两碗，现在一分钟能倒五碗。<ul>
+<li><strong>价值量：降低</strong><br>原来一碗绿豆汤的行情价是$¥0.5/碗$，现在全省食堂增加了产量，物价局一看，嚯，绿豆汤制作成本这么低，降价到$¥0.2/碗$吧。现在的行情，一碗绿豆汤就不值几个钱。</li>
+<li><strong>使用价值量：不变</strong><br>绿豆汤就还是绿豆汤，化学成分没怎么变化。甭管出自哪个食堂哪位大厨的手，消暑解渴的用途不改，使用价值不变。</li>
+</ul>
+</li>
+<li>维度：单位时间（姑且定为一天）。<ul>
+<li><strong>价值量：不变</strong><br>仍旧代入前面提到的公式：<br>$$\mathbf{单位时间的价值量=时间×产量×单价}$$<br>现在相同时间，绿豆汤产量提高，单价却降低，相互抵消掉后单位时间价值量并未发生改变（$\mathbf{2碗/分钟×¥0.5元/碗=5碗/分钟×¥0.2元/碗}$的关系）。</li>
+<li><strong>使用价值量：提高</strong><br>代回上个层次相同维度提到的公式：<br>$$\mathbf{单位时间的使用价值量=产量}$$<br>显然地，社会劳动生产率提高促使产量大跨步前进，我们甚至可以解其他省份游客的渴啦！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="绿豆汤实例带给我们的结论"><a href="#绿豆汤实例带给我们的结论" class="headerlink" title="绿豆汤实例带给我们的结论"></a>绿豆汤实例带给我们的结论</h2><p>劳动生产率代表劳动者生产使用价值的能力，其高低可以用单位劳动时间内生产数量衡量，也可以单位商品所消耗的劳动时间衡量（<strong>类比小学应用题公式：$\mathbf{生产总量=生产速度×生产时间}$</strong>）。文中各参量关系如下表所示。<br></p>
+<center>
+<ol>
+ <table border="2" bordercolor="black" cellspacing="0" cellpadding="5">
+ <tr>
+ <td colspan="2"></td>
+ <td>个别劳动生产率提高</td>
+ <td colspan="2">社会劳动生产率提高</td>
+ </tr>
+ <tr>
+ <td rowspan="2">单位商品</td>
+ <td>价值量</td>
+ <td>不变</td>
+ <td>降低</td>
+ </tr>
+ <tr>
+ <td>使用价值量</td>
+ <td>不变</td>
+ <td>不变</td>
+ </tr>
+ <tr>
+ <td rowspan="2">单位时间</td>
+ <td>价值量</td>
+ <td>提高</td>
+ <td>不变</td>
+ </tr>
+ <tr>
+ <td>使用价值量</td>
+ <td>提高</td>
+ <td>提高</td>
+ </tr>
+ </table>
+ <br>
+</ol>
+</center>
+这样我们就能大致分清个中关系了。
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">本文提供PDF格式下载<a href="https://stuouceducn-my.sharepoint.com/:b:/g/personal/xuxu6965_stu_ouc_edu_cn/Ea5PyFBbqpJIteY_HV4PexEBN_jMVu-zFNz-ppICyTCYwA?e=YmGeji" target="_blank" rel="noopener">CommodityEconomy.pdf</a>。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2019/09/28/%E5%9F%BA%E4%BA%8E%E5%8A%B3%E5%8A%A8%E8%B0%88%E8%B0%88%E5%AF%B9%E5%95%86%E5%93%81%E4%BB%B7%E5%80%BC%E9%87%8F%E7%9A%84%E7%90%86%E8%A7%A3/">https://callmemengmeng.github.io/2019/09/28/%E5%9F%BA%E4%BA%8E%E5%8A%B3%E5%8A%A8%E8%B0%88%E8%B0%88%E5%AF%B9%E5%95%86%E5%93%81%E4%BB%B7%E5%80%BC%E9%87%8F%E7%9A%84%E7%90%86%E8%A7%A3/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/10/01/%E5%9B%BD%E5%BA%86%E8%8A%82/">国庆节</a>
+            
+            
+            <a class="next" rel="next" href="/2019/09/23/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6%E7%9A%84%E5%93%B2%E7%90%86/">电子元件中的哲理</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

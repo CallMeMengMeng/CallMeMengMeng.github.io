@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>字长数据的二八进制转换与输出 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/RM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">字长数据的二八进制转换与输出</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 11, 2020&nbsp;&nbsp;22:36:25</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                                <a href="/categories/Blogs/%E6%B1%87%E7%BC%96/">汇编</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>最近碰到这么一道类型转换题，要求很简单，将一个字长数据<strong>1234H</strong>转换成对应的二进制和八进制数，并将其打印到屏幕上。之前本小子也有遇到过类型转化的问题，如今只是多了显示的步骤，其实加上差值转换成数字对应的<strong>ASCII</strong>码即可。但我在<a href="http://forec.cn" target="_blank" rel="noopener">这位老哥</a>处发现一种新的思路，记之如下。</p>
+<h3 id="思路简介"><a href="#思路简介" class="headerlink" title="思路简介"></a>思路简介</h3><p>汇编21H中断输出需要用到<code>DL</code>这个8-BIT寄存器存储待显示的内容(<strong>BYTE</strong>)，但题设中字(<strong>WORD</strong>)长数据所在位置为16-BIT存储器，所以考虑先将之移入<code>BX</code>寄存器，每次只保留高八位也就是<code>BH</code>的首位，再利用无符号数移位指令将其放到<code>BH</code>的末位从而获得该十六进制数的二进制形式首位。</p>
+<p>该字长数据中包含4-BIT十六进制数据，为了转换为6-BIT的八进制数，需要单独仿照上述步骤分离出首位，<code>BX</code>中剩下的15-BIT二进制数每次只保留前三位在<code>BH</code>中，移到后三位即可获得该十六进制数八进制形式的第二位。</p>
+<p>由于<code>ASCII[0]=30H</code>，所以将结果加上<strong>30H</strong>即可转化为对应的字符，送入<code>DL</code>后便可以通过<strong>21H</strong>中断在屏幕上显示啦。当然这只完成了一个数据的转化输出，想要得到整个十六位二进制数(或者六位八进制数)就需要每次将<code>BX</code>数据向左边移动一位(或三位)，从而保证<code>BH</code>中遍历所有数据。这种做法的关键点在于，移位指令需要<code>CL</code>作为计数器，而<code>BX</code>的循环左移需要<code>CX</code>做计数器，为了避免数据交叠，需要在<code>CL</code>设置移动步数前将<code>CX</code>内容入栈，在输出<code>BH</code>内容后将<code>CX</code>内容出栈，最后才可以左移<code>BX</code>中的数据。</p>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><h4 id="字长十六进制数据转换为二进制并输出"><a href="#字长十六进制数据转换为二进制并输出" class="headerlink" title="字长十六进制数据转换为二进制并输出"></a>字长十六进制数据转换为二进制并输出</h4><div id="flowchart-0" class="flow-chart"></div>
+
+<h4 id="字长十六进制数据转换为八进制并输出"><a href="#字长十六进制数据转换为八进制并输出" class="headerlink" title="字长十六进制数据转换为八进制并输出"></a>字长十六进制数据转换为八进制并输出</h4><div id="flowchart-1" class="flow-chart"></div>
+
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><h4 id="题设条件"><a href="#题设条件" class="headerlink" title="题设条件"></a>题设条件</h4><p>TRY TO WRITE A PROGRAM WITH A NESTED STRUCTURE OF SUBROUTINES AND DISPLAY THE INTEGERS IN BINARY AND OCTAL FORMS.</p>
+<ul>
+<li>MAIN PROGRAM BANDO:<ul>
+<li>STORE THE INTEGER NUMBERIC VARIABLE VAL1 IN THE STACK AND CALL THE SUBROUTINE PAIRS.</li>
+</ul>
+</li>
+<li>SUBROUTINE PAIRS:<ul>
+<li>REMOVE VAL1 FROM THE STACK.</li>
+<li>CALL THE BINARY DISPLAY PROGRAM OUTBIN TO DISPLAY ITS EQUIVALENT BINARY NUMBER.</li>
+<li>OUTPUT 8 SPACES.</li>
+<li>CALL THE OCTAL DISPLAY PROGRAM OUTOCT TO DISPLAY ITS EQUIVALENT OCTAL NUMBER.</li>
+<li>CALL THE SUBROUTINE BREAKLINE TO OUTPUT CARRIAGE RETURN AND LINE FEED.</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><details>
+<summary>点击查看代码</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">DATA SEGMENT</span><br><span class="line">VAL1 DW 1234H</span><br><span class="line">BINDISP DB &#39;BIN: $&#39;</span><br><span class="line">OCTDISP DB &#39;OCT: $&#39;</span><br><span class="line">SPACE DB &#39;        $&#39;				; DISPLAY 8 SPACES</span><br><span class="line">BREAKLINE DB 0DH,0AH,&#39;$&#39;</span><br><span class="line">DATA ENDS</span><br><span class="line"></span><br><span class="line">STACK SEGMENT PARA STACK &#39;STACK&#39;</span><br><span class="line">DB 100 DUP(0)</span><br><span class="line">STACK ENDS</span><br><span class="line"></span><br><span class="line">CODE SEGMENT</span><br><span class="line">ASSUME DS:DATA,CS:CODE</span><br><span class="line">START:</span><br><span class="line">	MOV AX,DATA</span><br><span class="line">	MOV DS,AX</span><br><span class="line">	MOV ES,AX</span><br><span class="line">	CALL BANDO</span><br><span class="line">QUIT:</span><br><span class="line">	MOV AH,4CH</span><br><span class="line">	INT 21H</span><br><span class="line">									; MIAN PROGRAM BANDO</span><br><span class="line">BANDO PROC NEAR</span><br><span class="line">	PUSH VAL1</span><br><span class="line">	CALL PAIRS</span><br><span class="line">	RET</span><br><span class="line">BANDO ENDP</span><br><span class="line">									; SUBROUTINE PAIRS</span><br><span class="line">PAIRS PROC NEAR</span><br><span class="line">	POP BX</span><br><span class="line">	POP AX</span><br><span class="line">	CALL OUTBIN</span><br><span class="line">	CALL OUTOCT</span><br><span class="line">	RET</span><br><span class="line">PAIRS ENDP</span><br><span class="line">									; SUBROUTINE OUTBIN</span><br><span class="line">OUTBIN PROC NEAR</span><br><span class="line">	PUSH AX</span><br><span class="line">	PUSH BX</span><br><span class="line">	PUSH CX</span><br><span class="line">	PUSH DX</span><br><span class="line">	</span><br><span class="line">	MOV BX,AX</span><br><span class="line">	MOV AH,09H						; DISPLAY BINDISP</span><br><span class="line">	MOV DX,OFFSET BINDISP</span><br><span class="line">	INT 21H</span><br><span class="line">	MOV CX,10H						; A WORD-FIUGRE HAS 16 BITS</span><br><span class="line">	MOV AH,02H</span><br><span class="line">	LOOP1:</span><br><span class="line">		MOV DL,BH</span><br><span class="line">		AND DL,80H					; KEEP THE FISRST BIT OF BH MERELY</span><br><span class="line">		PUSH CX						; &#39;CAUSE SHR NEEDS USING CL, PUSH CX IN STACK TO BACKUP THE ORIGIN DATA</span><br><span class="line">		MOV CL,07H</span><br><span class="line">		SHR DL,CL					; SHIFT THE FIRST BIT OF BH TO THE LAST BIT, AND SET THE OTHER BITS OF BH 0</span><br><span class="line">		POP CX</span><br><span class="line">		ADD DL,30H					; CONVERT THE NUMBERIC FIGURE TO CHARACTER</span><br><span class="line">		INT 21H						; OUTPUT DL</span><br><span class="line">		SHL BX,1					; SHIFT THE WHOLE BX TO LEFT BY 1 BIT SO AS TO OUTPUT EACH BIT OF BX </span><br><span class="line">		LOOP LOOP1</span><br><span class="line">	MOV AH,02H</span><br><span class="line">	MOV DL,&#39;B&#39;						; OUTPUT &#39;B&#39; FOLLOWING BX</span><br><span class="line">	INT 21H</span><br><span class="line">	MOV AH,09H</span><br><span class="line">	MOV DX,OFFSET SPACE				; OUTPUT 8 SPACES FOLLOWING &#39;B&#39;</span><br><span class="line">	INT 21H</span><br><span class="line">	POP DX</span><br><span class="line">	POP CX</span><br><span class="line">	POP BX</span><br><span class="line">	POP AX</span><br><span class="line">	RET</span><br><span class="line">OUTBIN ENDP</span><br><span class="line"></span><br><span class="line">OUTOCT PROC NEAR</span><br><span class="line">	PUSH AX</span><br><span class="line">	PUSH BX</span><br><span class="line">	PUSH CX</span><br><span class="line">	PUSH DX</span><br><span class="line">	</span><br><span class="line">	MOV BX,AX</span><br><span class="line">	MOV AH,09H						; DISPLAY OCTDISP</span><br><span class="line">	MOV DX,OFFSET OCTDISP</span><br><span class="line">	INT 21H</span><br><span class="line">	MOV CL,07H						; OUTPUT THE FIRST BIT OF BX</span><br><span class="line">	MOV AH,02H</span><br><span class="line">	MOV DL,BH</span><br><span class="line">	AND DL,80H</span><br><span class="line">	SHR DL,CL</span><br><span class="line">	ADD DL,30H</span><br><span class="line">	INT 21H</span><br><span class="line">	SHL BX,1						; SHIFT THE WHOLE BX TO LEFT BY 1 BIT</span><br><span class="line">	MOV CX,05H						; A OCTAL FIGURE EQUALS TO 3 BINARY BITS, THERE ARE 5 OCTAL FIGURES EXCEPT THE FIRST BIT</span><br><span class="line">	LOOP2:</span><br><span class="line">		MOV DL,BH</span><br><span class="line">		AND DL,0E0H					; KEEP THE FIRST 3 BITS OF BH MERELY</span><br><span class="line">		PUSH CX</span><br><span class="line">		MOV CL,05H					; SHIFT THE FIRST 3 BITS OF BH TO THE LAST 3 BITS, AND SET THE OTHER BITS OF BH 0</span><br><span class="line">		SHR DL,CL</span><br><span class="line">		POP CX</span><br><span class="line">		ADD DL,30H</span><br><span class="line">		INT 21H</span><br><span class="line">		SHL BX,3					; SHIFT THE WHOLE BX TO LEFT BY 3 BITS SO AS TO CONVERT EACH 3 BITS OF BX TO A OCTAL</span><br><span class="line">		LOOP LOOP2					; FIGURES AND OUTPUT THEM</span><br><span class="line">	MOV AH,02H</span><br><span class="line">	MOV DL,&#39;O&#39;						; OUTPUT &#39;B&#39; FOLLOWING BX</span><br><span class="line">	INT 21H</span><br><span class="line">	CALL NEXTLINE					; CALL THE SUBROUTINE BREAKLINE</span><br><span class="line">	POP DX</span><br><span class="line">	POP CX</span><br><span class="line">	POP BX</span><br><span class="line">	POP AX</span><br><span class="line">	RET</span><br><span class="line">OUTOCT ENDP</span><br><span class="line"></span><br><span class="line">NEXTLINE PROC NEAR</span><br><span class="line">	PUSH AX</span><br><span class="line">	PUSH DX</span><br><span class="line">	MOV AH,09H</span><br><span class="line">	MOV DX,OFFSET BREAKLINE</span><br><span class="line">	INT 21H</span><br><span class="line">	POP DX</span><br><span class="line">	POP AX</span><br><span class="line">	RET</span><br><span class="line">NEXTLINE ENDP</span><br><span class="line"></span><br><span class="line">CODE ENDS</span><br><span class="line">	END START</span><br></pre></td></tr></table></figure>
+</details>
+
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p><img src="/2020/04/11/%E5%AD%97%E9%95%BF%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BA%8C%E5%85%AB%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%8E%E8%BE%93%E5%87%BA/Result.jpg" alt="Result" title="Result"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">start=>start: 开始
+op1=>operation: 将1234H存入BX中
+op2=>operation: MOV AH,02H
+				MOV CX,10H
+op3=>operation: MOV DL,BH
+				只保留BH的最高位 
+				AND DL,80H
+op4=>operation: PUSH CX
+				MOV CL,07H
+				SHR DL,CL
+				将BH最高位移动到末位，其他位0
+op5=>operation: ADD DL,30H
+				将数字转化为对应字符
+				POP CX
+io1=>inputoutput: INT 21H
+				开中断输出DL
+op6=>operation: 将BX的下一位移到首位
+				SHL BX,1
+				CX--
+cond1=>condition: CX=0?
+e=>end: 结束
+
+start->op1->op2->op3->op4->op5(right)->io1->op6(right)->cond1
+cond1(no,right)->op3
+cond1(yes)->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">start=>start: 开始
+op1=>operation: 将1234H存入BX中
+op2=>operation: MOV AH,02H
+				MOV CL,07H
+				MOV DL,BH
+				SHR DL,CL
+				将BH最高位移到末位其他位0
+op3=>operation: ADD DL,30H
+				将数字转化为对应字符
+io1=>inputoutput: INT 21H
+				开中断输出DL
+op4=>operation: SHL BX,1
+				MOV CX,05H
+				MOV AH,02H
+op5=>operation: MOV DL,BH
+				AND DL,E0H
+				(保留BH前三位)
+				PUSH CX
+				MOV CL,05H
+				SHR DL,CL
+				(将高三位移到末三位)
+				ADD DL,30H
+				(将数字转化为对应字符)
+				POP CX
+io2=>inputoutput: INT 21H
+				开中断输出DL
+op6=>operation: SHL BX,3
+				(将BX的另外三位移动到高三位)
+				CX--
+cond=>condition: CX=0?
+e=>end: 结束
+
+start->op1->op2->op3(right)->io1->op4->op5->io2
+io2->op6(right)->cond
+cond(yes)->e
+cond(no,right)->op5</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/04/11/%E5%AD%97%E9%95%BF%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BA%8C%E5%85%AB%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%8E%E8%BE%93%E5%87%BA/">https://callmemengmeng.github.io/2020/04/11/%E5%AD%97%E9%95%BF%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BA%8C%E5%85%AB%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%8E%E8%BE%93%E5%87%BA/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        <a href="/tags/%E6%B1%87%E7%BC%96/"># 汇编</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/04/11/FlowChart%E6%B5%81%E7%A8%8B%E5%9B%BE/">FlowChart流程图</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
