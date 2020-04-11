@@ -10,7 +10,7 @@
 
 
 
-<title>从一个折腾走向另一个折腾 | ReyesMeng&#39;s Blog</title>
+<title>FlowChart流程图 | ReyesMeng&#39;s Blog</title>
 
 
 
@@ -227,7 +227,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">从一个折腾走向另一个折腾</h1>
+            <h1 class="post-title">FlowChart流程图</h1>
             
                 <div class="post-meta">
                     
@@ -236,14 +236,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 8, 2020&nbsp;&nbsp;20:50:11</a>
+                        Date: <a href="#">April 11, 2020&nbsp;&nbsp;12:46:32</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Blogs/">Blogs</a>
+                                <a href="/categories/Markdown/">Markdown</a>
                             
                         </span>
                     
@@ -253,21 +253,48 @@
 
         <div class="post-content">
             <hr>
-<p><center><font face="楷体" size="2" color="gray">“人生就是从一个折腾走向另一个折腾。”——Reyes Meng</font></center></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>高中数学第一次接触程序就一直是手绘流程图，后来学C时老师推荐使用<a href="https://www.processon.com/" target="_blank" rel="noopener">ProcessOn</a>绘制，最近写汇编程序又要用到，码字时总要登陆网页先绘制再下载之后还得贴到文字内容的相应位置，尤其在需要绘制多张流程图时略显麻烦(比如<a href="https://callmemengmeng.github.io/2020/04/07/">这种</a>工作量)，所以考虑使用Markdown直接绘(<strong>手</strong>)制(<strong>写</strong>)。</p>
+<p>本着搬轮子的指导思想，本小子放狗搜了一圈后发现Markdown支持绘制流程图的插件还真不少，结合Hexo框架的具体实际最终选择基于<a href="http://flowchart.js.org/" target="_blank" rel="noopener"><code>flowchart.js</code></a>的<a href="https://github.com/bubkoo/hexo-filter-flowchart" target="_blank" rel="noopener"><code>hexo-filter-flowchart</code></a>插件。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>轮子的好处就在于省事儿，Hexo的这些插件基本上都可一句话安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save hexo-filter-flowchart</span><br></pre></td></tr></table></figure>
 
-<p>也不知搭错哪根筋，本小子突发奇想揍性大发就要再倒腾倒腾这小破站。其实颠来倒去就一件事儿，从去年配置好<a href="https://hexo.io/zh-cn/index.html" target="_blank" rel="noopener">HEXO</a>苟到今日，有些文章涉及人员指向性略强得考虑给加加密啊。这才有了傍晚前的一通倒腾。有道是知己知彼方能百战不殆，故出恭时手也没闲着放狗搜相关技术贴子，搭眼一瞧这博文加密有现成轮子可用，节省不少体力！</p>
-<h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><p>我的需求很简单只用实现某篇文章输入密码可见即可，HEXO官方插件库中有一款<code>hexo-blog-encrypt</code><a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">插件</a>完美契合，且其安装配置和使用都很方便。</p>
-<h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><p>鉴于本小子暂时还处在盗版<em>Win10</em>的穷学生时代，并不清楚其他<del>(单纯指Mac)</del>平台的安装方式，故下面所有操作均基于<em>Win + Git Bash + npm</em>环境。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-blog-encrypt --save</span><br></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在Hexo的<code>_config.yml</code>文件(注意不是主题的<code>_config.yml</code>)中添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flowchart:</span><br><span class="line">  # raphael:   # optional, the source url of raphael.js</span><br><span class="line">  # flowchart: # optional, the source url of flowchart.js</span><br><span class="line">  options: # options used for &#96;drawSVG&#96;</span><br></pre></td></tr></table></figure>
+<p>但和<a href="https://www.liuyude.com/How_to_make_your_HEXO_blog_support_handwriting_flowchart.html" target="_blank" rel="noopener">这位老哥</a>发现的问题一样，插件安装成功后未在<code>_config.yml</code>中配置也能直接使用，这一点挺神奇的！</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>由于这个<code>hexo-filter-flowchart</code>插件基于<code>flowchart.js</code>，实际上使用的是后者的语法<code>name=&gt;type: content:&gt;url</code>。其中，</p>
+<ul>
+<li><strong>name</strong>为元素的名称；</li>
+<li><strong>type</strong>为元素所在的流程类型，包括：<ul>
+<li>start，</li>
+<li>end，</li>
+<li>operation，</li>
+<li>subroutine，</li>
+<li>condition，</li>
+<li>input/output，</li>
+<li>parallel；</li>
+</ul>
+</li>
+<li><strong>content</strong>为文本内容(自定义)；</li>
+<li><strong>url</strong>为文本中随附的链接。</li>
+</ul>
+<p>比如插件作者给出的这个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">\&#96;\&#96;\&#96;flow		# 使用时删去&#39;\&#39;符号</span><br><span class="line">st&#x3D;&gt;start: Start|past:&gt;</span><br><span class="line">e&#x3D;&gt;end: End:&gt;https:&#x2F;&#x2F;github.com&#x2F;bubkoo&#x2F;hexo-filter-flowchart</span><br><span class="line">op1&#x3D;&gt;operation: My Operation|past</span><br><span class="line">op2&#x3D;&gt;operation: Stuff|current</span><br><span class="line">sub1&#x3D;&gt;subroutine: My Subroutine|invalid</span><br><span class="line">cond&#x3D;&gt;condition: Yes</span><br><span class="line">or No?|approved:&gt;https:&#x2F;&#x2F;github.com&#x2F;bubkoo&#x2F;hexo-filter-flowchart</span><br><span class="line">c2&#x3D;&gt;condition: Good idea|rejected</span><br><span class="line">io&#x3D;&gt;inputoutput: catch something...|request</span><br><span class="line"></span><br><span class="line">st-&gt;op1(right)-&gt;cond</span><br><span class="line">cond(yes, right)-&gt;c2</span><br><span class="line">cond(no)-&gt;sub1(left)-&gt;op1</span><br><span class="line">c2(yes)-&gt;io-&gt;e</span><br><span class="line">c2(no)-&gt;op2-&gt;e</span><br><span class="line">\&#96;\&#96;\&#96;		# 使用时删去&#39;\&#39;符号</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<div id="flowchart-0" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>
+e=>end: End:>https://github.com/bubkoo/hexo-filter-flowchart
+op1=>operation: My Operation|past
+op2=>operation: Stuff|current
+sub1=>subroutine: My Subroutine|invalid
+cond=>condition: Yes
+or No?|approved:>https://github.com/bubkoo/hexo-filter-flowchart
+c2=>condition: Good idea|rejected
+io=>inputoutput: catch something...|request
 
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>插件下载成功后需要修改HEXO的<code>_config.yml</code>文件，注意不是所使用主题的<code>_config.yml</code>文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## hexo-blog-encrypt</span><br><span class="line">encrypt:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>设置成功后，打开需要加密的文章，在其头部添加如下内容即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: The title of your article</span><br><span class="line">tags: Tags of your article</span><br><span class="line">date: Dates of your writing</span><br><span class="line">password: ReyesMeng</span><br><span class="line">abstract: Here&#39;s something encrypted, password is required to continue reading.</span><br><span class="line">message: Hey, password is required here.</span><br><span class="line">wrong_pass_message: Oh, this is an invalid password. Check and try again, please.</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-
-
+st->op1(right)->cond
+cond(yes, right)->c2
+cond(no)->sub1(left)->op1
+c2(yes)->io->e
+c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script>
         </div>
 
         
@@ -281,7 +308,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://callmemengmeng.github.io/2020/04/08/">https://callmemengmeng.github.io/2020/04/08/</a></span>
+                        <span><a href="https://callmemengmeng.github.io/2020/04/11/">https://callmemengmeng.github.io/2020/04/11/</a></span>
                     </p>
                 
                 
@@ -307,6 +334,8 @@
                     
                         <a href="/tags/Blogs/"># Blogs</a>
                     
+                        <a href="/tags/Markdown/"># Markdown</a>
+                    
                         
                 </span>
             </div>
@@ -318,10 +347,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/11/">FlowChart流程图</a>
             
-            
-            <a class="next" rel="next" href="/2020/04/07/">汇编？不会编？会不汇编？</a>
+            <a class="next" rel="next" href="/2020/04/08/">从一个折腾走向另一个折腾</a>
             
         </section>
 
