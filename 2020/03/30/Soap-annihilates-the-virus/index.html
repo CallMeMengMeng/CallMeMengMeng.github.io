@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>译·小肥皂单挑众病毒 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/RM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">译·小肥皂单挑众病毒</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 30, 2020&nbsp;&nbsp;21:48:39</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                                <a href="/categories/Blogs/%E7%BF%BB%E8%AF%91/">翻译</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<p><center><font face="Times New Roman" size="3" color="gray">WARNING</font></center>
+<font face="楷体" size="2" color="gray">
+本文由<a href="https://callmemengmeng.github.io/"><i>Reyes Meng</i></a>译自<b>VOX</b>网站的<a href="https://www.vox.com/science-and-health/2020/3/11/21173187/coronavirus-covid-19-hand-washing-sanitizer-compared-soap-is-dope?utm_campaign=vox.social&utm_content=voxdotcom&utm_medium=social&utm_source=youtube" target="_blank" rel="noopener"><i>How soap absolutely annihilates the coronavirus</i></a>一文，仅供学习交流，禁止任何商业用途。
+</font>
+</p>
+
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>近几个月冠状病毒在全球范围内肆虐，各国医疗部门均积极响应，高速运转抗击疫情。宅家持续追踪各国新闻发现，即使信仰、国家、政党不相同，但医疗部门向其国民宣传的预防措施中均包括“要勤洗手”的共同观点。在我看来，只是简单的流水洗手预防病毒并不确切，洗手过程中会使用到的肥皂或具有表面活性物质的其他清洁用品才是关键。为此本小子向一位相关专业的童鞋咨询了自己的观点，之后在放狗查资料时发现<a href="http://www.chemistry.unsw.edu.au/staff/pall-thordarson" target="_blank" rel="noopener">Palli Thordarson教授</a>在社交平台上介绍过油滴和冠状病毒结构的相似性，而<strong>VOX</strong>网站恰好发布了这篇关于肥皂如何杀死病毒的文章，便翻译于此，仅作科普学习之用。</p>
+<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><center><font face="楷体" size="2" color="gray">肥皂破坏了病毒结构，流水带走了残留物。—— <b>VOX</b></font></center></p>
+
+<p>就在<strong>COVID-19</strong>在全球掀起巨浪的当下，有这么一款消费级产品对我们打赢这场“压扁曲线，减缓蔓延”战争至关重要——<strong>肥皂</strong>——那谦逊、古朴、平价却十分有效的肥皂。</p>
+<p>呼吸道病毒，比如新型冠状病毒、流感病毒和普通感冒病毒等都可通过我们的手来传播。患者不可避免会接触到鼻涕等含有病毒的粘液，于是病毒颗粒便附着于手上。而对正常人而言，此时双手便成为病毒传染的陷阱。我们可能接触到一些含有病毒的液滴，它们残留在手上后，如果我们用手触碰面部的话，病毒就有了可趁之机进入人体。</p>
+<p>所以我们的双手就是抗击病毒的前线。<a href="https://www.cdc.gov/" target="_blank" rel="noopener">CDC</a>建议使用肥皂洗手作为手部清洁的首选，如果实在找不到肥皂和水源的话，使用酒精含量$\geq60%$的消毒剂也可以。然而新闻报道称人们大量采购囤积消毒剂，直接导致其售价剧增着实荒唐。在你工作或生活的地方没有洗手池可用时酒精含量$\geq60%$的洗手液确实是不错的选择，但如今没有配备洗手间的工作或生活设施实在太过稀少。</p>
+<p>消毒剂可以看成是肥皂现代化、科学化、临床化的升级版，但其实任何种类的(液体的、固体的、郁金香味道的、男\女性专用的)肥皂都十分见效。毕竟使用肥皂洗手时，不只是搓掉病毒用水冲走这么简单，实际是灭活病毒使之无害。正如<a href="http://www.chemistry.unsw.edu.au/staff/pall-thordarson" target="_blank" rel="noopener">Palli Thordarson教授</a>所言，<strong>肥皂就像是一个拆迁队，它毁掉一个建筑，并清走所有的砖瓦</strong>。</p>
+<h2 id="什么是肥皂"><a href="#什么是肥皂" class="headerlink" title="什么是肥皂"></a>什么是肥皂</h2><p>肥皂是“<a href="https://en.wikipedia.org/wiki/Amphiphile" target="_blank" rel="noopener">两亲性</a>”在实际生活中的应用。两亲分子具有两种属性：其中一端与水分子相互吸引，与油脂相互排斥，而另一端则与油脂相互吸引，与水相互排斥。仔细查看配料表会发现，常见肥皂中多含有“月桂基硫酸钠”，这是一种常用添加剂，确保肥皂既能去污清洁又不伤害皮肤。</p>
+<p>正是这种两亲性化学结构使得肥皂如此见效。我们买到的任何一块都是各种两性分子的混合物，它们都具有相同的能力。</p>
+<p><img src="http://a0.att.hudong.com/28/11/01000000000000119081137899128.jpg" alt="两亲分子" title="两亲分子"></p>
+<p>回忆我们将食用油倒入水中的情景。由于油脂不溶于水，这些油滴聚成一团浮在水中。但向其中溶解一些肥皂后，油滴就逐渐消散了，出现这一现象的原因是肥皂分子的疏水端和油脂相互吸引，包围油脂颗粒使之相互分离，最终撕碎它们并通过亲水端将油脂残骸拉入水中，这是一套组合拳。</p>
+<p>幸运的是，冠状病毒结构有些类似上面提到的油脂：其由RNA编码而来的遗传物质被脂质-蛋白质外衣包裹着。Palli Thordarson教授戏称其为“纳米级油脂球”。既然是油脂球，无论大小，都可以被肥皂摧毁。</p>
+<h2 id="肥皂如何摧毁病毒"><a href="#肥皂如何摧毁病毒" class="headerlink" title="肥皂如何摧毁病毒"></a>肥皂如何摧毁病毒</h2><p>与油脂反应过程相同，肥皂就像一根撬棍，它撬开病毒外壳露出所有内容物。</p>
+<p><img src="http://news.cntv.cn/20120928/images/1348774070049_75262315.jpg" alt="冠状病毒结构" title="冠状病毒结构"></p>
+<p>肥皂分子的疏水基深深埋入病毒的脂质-蛋白质外壳中，所幸维系病毒外壳结构的化学键并不牢固，肥皂分子得以破坏病毒外壳，将病毒拆成碎片，使之溶解在水中。之后无害的病毒碎片被水冲走。即使没能摧毁所有病毒，仍然可以借助肥皂和流水使之与其它附着的油脂、灰尘从我们手上脱离。当然，有些病毒比冠状病毒更加坚固更难碎裂，肥皂依然可以洗掉细菌以及这类病毒。</p>
+<p>这个过程需要一些时间，这就是我们为何至少要洗手20秒钟。首先，我们的皮肤满是褶皱，肥皂分子需要一点时间才能渗入所有微小的褶皱消灭藏匿其中的病毒。其次，病毒与肥皂分子间的反应过程也需要一定的时间。我们需要等待这些微粒交互反应，二十秒钟刚刚好。</p>
+<p>酒精，消毒剂的主要成分，也可以摧毁病毒结构，它也具有些两亲性，和肥皂分子的作用机制相似。但需要高浓度酒精才能达到相同的效果(季铵化合物——<a href="https://www.lysol.com/" target="_blank" rel="noopener">Lysol</a>的主要成分，杀死病毒的同时也会使皮肤粗糙)。</p>
+<p>酒精含量$\geq60%$的免洗洗手液才有效果，所以在购买消毒剂、湿巾等类似产品时一定要注意那些不达标(甚至不含酒精)的西贝货。手部消毒液很有效，但它在一些情况下表现欠佳。如果你在手部沾水或汗湿的情况下使用这些消毒剂，它们会因稀释导致效用降低。当然，消毒剂也无法清理可能藏有病毒的黏性油脂。</p>
+<p>肥皂真的很难失效，不管何种成分的肥皂都是如此，所以不必专门购买所谓的“抗菌皂”。实际上，由于缺乏证据证明其有用性，CDC建议完全跳过这类产品。当然也不需要用于洗碗或洗衣服的强力去污剂，简简单单的一块肥皂就可以，只要你给这个小家伙一点时间，它就能完它的去污工作。</p>
+<p>综上所述，在我们倒数二十秒用肥皂洗手时，皮肤的微小褶皱中进行着纳米级的战争，肥皂蓄积能量，紧紧缠住病毒(以及灰尘和其他油脂)，英勇、残忍的将它们撕成碎片。场面比<em>《复仇者联盟》</em>更加壮烈，因为这是真实发生的场景。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>肥皂等含有两亲性分子(表面活性分子)的产品可以和冠状病毒的“油脂球”结构结合，其亲水基在外部水流的作用下破坏化学键进而撕开病毒外壳，使之溶解在水中，使病毒失活。最后，希望每个人都能养成<strong>肥皂洗手二十秒，公共场合戴口罩</strong>的习惯，抵抗病毒，保持健康。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/03/30/Soap-annihilates-the-virus/">https://callmemengmeng.github.io/2020/03/30/Soap-annihilates-the-virus/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        <a href="/tags/%E7%BF%BB%E8%AF%91/"># 翻译</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/07/%E6%B1%87%E7%BC%96%EF%BC%9F%E4%B8%8D%E4%BC%9A%E7%BC%96%EF%BC%9F%E4%BC%9A%E4%B8%8D%E6%B1%87%E7%BC%96%EF%BC%9F/">汇编？不会编？会不汇编？</a>
+            
+            
+            <a class="next" rel="next" href="/2020/03/24/Markdown%E5%86%85%E5%AE%B9%E6%8A%98%E5%8F%A0/">Markdown内容折叠</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
