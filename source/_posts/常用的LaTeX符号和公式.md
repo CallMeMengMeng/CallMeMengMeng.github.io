@@ -5,9 +5,7 @@ tags:
 - Blogs
 - 书摘
 - Markdown
-category: 
-- 书摘
-- Markdown
+category: Markdown
 mathjax: true
 ---
 > 使用Markdown语法更新博文以及日常堆砌论文报告时经常遇到公式拦路的情况，往往是文章框架搭建完毕，文字内容亟待喷发，但却卡在${\LaTeX}$公式编辑的代码上。常常是看了忘，再碰到时候又得放狗去搜。遂整理在此，方便检索[^1]。

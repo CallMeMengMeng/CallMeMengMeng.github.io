@@ -13,14 +13,14 @@ nav:
   Music: https://reyesmeng2.github.io/
 
 # favicon RSS图标
-favicon: /image/RM.ico
+favicon: /image/NewRM.ico
 
 # Profile
 nickname: Reyes Meng
 
 ### this variable is MarkDown form.
 description: Un estudiante universitario | Vivo en Qingdao | Русский новичок <br>正处于并将长期处于价格敏感型消费阶段
-avatar: /image/ReyesMeng.jpg
+avatar: /image/ReyesMeng.png
 
 # main menu navigation
 ## links key words should not be changed.

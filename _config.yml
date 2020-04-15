@@ -97,6 +97,15 @@ feed:
   path: atom.xml
   limit: 5
 
+## encrypt
+encrypt:
+  enable: true
+
+## flowchart
+flowchart:
+  # raphael:   # optional, the source url of raphael.js
+  # flowchart: # optional, the source url of flowchart.js
+  options: # options used for `drawSVG`
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
