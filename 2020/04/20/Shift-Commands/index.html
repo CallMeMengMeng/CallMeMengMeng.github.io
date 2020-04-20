@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>常用的四种位移指令 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/NewRM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">常用的四种位移指令</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 20, 2020&nbsp;&nbsp;18:31:59</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                                <a href="/categories/Blogs/%E6%B1%87%E7%BC%96/">汇编</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>前面<a href="https://callmemengmeng.github.io/2020/04/07/%E6%B1%87%E7%BC%96%EF%BC%9F%E4%B8%8D%E4%BC%9A%E7%BC%96%EF%BC%9F%E4%BC%9A%E4%B8%8D%E6%B1%87%E7%BC%96%EF%BC%9F/">那篇文章</a>里本小子帮那位土耳其小哥用移位指令实现了两数相乘，今天蹲坑冥想时翻到位移指令的课堂笔记，重新捋一捋常用的四种位移指令的具体过程。</p>
+<h2 id="位移指令分类"><a href="#位移指令分类" class="headerlink" title="位移指令分类"></a>位移指令分类</h2><p>EMU8086中常见(<del>考到</del>)的位移指令<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>可以分为循环位移指令和非循环位移指令两种，各自又可再细分出两小类：</p>
+<ul>
+<li>非循环位移指令<ul>
+<li>逻辑位移指令<code>SHR</code>和<code>SHL</code>；</li>
+<li>算数位移指令<code>SAR</code>和<code>SAL</code>；</li>
+</ul>
+</li>
+<li>循环位移指令<ul>
+<li>不带进位的循环移位指令<code>ROR</code>和<code>ROL</code>；</li>
+<li>带进位的循环移位指令<code>RCR</code>和<code>RCL</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="非循环位移指令"><a href="#非循环位移指令" class="headerlink" title="非循环位移指令"></a>非循环位移指令</h3><h4 id="逻辑位移指令"><a href="#逻辑位移指令" class="headerlink" title="逻辑位移指令"></a>逻辑位移指令</h4><p><strong>逻辑左移指令</strong><code>SHL</code>，aka. <em>Left Logic Shift</em>，目的操作数每向左移动一位，最低位用<code>0</code>填充。最高位进入<code>CF</code>标志位，丢弃<code>CF</code>中原来的数值。图示如下：<br><img src="http://c.biancheng.net/uploads/allimg/190509/4-1Z509150K0946.gif" alt="SHL" title="SHL"><br><strong>逻辑右移指令</strong><code>SHR</code>，aka. <em>Right Logic Shift</em>，目的操作数每向右移动一位，最高位用<code>0</code>填充。最低位进入<code>CF</code>标志位，丢弃<code>CF</code>中原来的数值。图示如下：<br><img src="http://c.biancheng.net/uploads/allimg/190509/4-1Z509154113459.gif" alt="SHR" title="SHR"></p>
+<h4 id="算数位移指令"><a href="#算数位移指令" class="headerlink" title="算数位移指令"></a>算数位移指令</h4><p><strong>算数左移指令</strong><code>SAL</code>，aka. <em>Left Arithmetic Shift</em>，其实质与逻辑左移指令相同，目的操作数每左移一位，最低位用<code>0</code>补充，最高位进入<code>CF</code>标志位，丢弃其中原有数值。</p>
+<p><strong>算数右移指令</strong><code>SAR</code>，aka. <em>Right Arithmetic Shift</em>，目的操作数每右移一位，最高位(<strong>符号位</strong>)不变，次高位与最高位相同，操作数的最低位进入<code>CF</code>标志位并丢弃其中原有数值。图示如下：<br><img src="http://c.biancheng.net/uploads/allimg/190509/4-1Z509162140558.gif" alt="SAR" title="SAR"></p>
+<h3 id="循环位移指令"><a href="#循环位移指令" class="headerlink" title="循环位移指令"></a>循环位移指令</h3><h4 id="不带进位的循环移位指令"><a href="#不带进位的循环移位指令" class="headerlink" title="不带进位的循环移位指令"></a>不带进位的循环移位指令</h4><p><strong>不带进位的循环左移指令</strong><code>ROL</code>，aka. <em>Rotate left</em>，目的操作数所有位都向左移动，最高位同时复制到<code>CF</code>标志位和最低位，但循环移位指令不会丢弃数据，左端循环出去的数位会出现在最右端。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,90H	; AL&#x3D;10010000B, CF&#x3D;0</span><br><span class="line">MOV CL,1	; CL&#x3D;1</span><br><span class="line">ROL AL,CL	; AL&#x3D;00100001B, CF&#x3D;1</span><br><span class="line">ROL AL,CL	; AL&#x3D;01000010B, CF&#x3D;0</span><br></pre></td></tr></table></figure>
+<p>图示如下：<br><img src="http://c.biancheng.net/uploads/allimg/190509/4-1Z5091A350554.gif" alt="ROL" title="ROL"><br><strong>不带进位的循环右移指令</strong><code>ROR</code>，aka. <em>Rotate Right</em>，目的操作数所有位都向右移动，最低位同时复制到<code>CF</code>标志位和最高位，循环移位指令不会丢弃数据，右端循环出去的数位会出现在最左端。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,91H	; AL&#x3D;10010001B, CF&#x3D;0</span><br><span class="line">MOV CL,1	; CL&#x3D;1</span><br><span class="line">ROR AL,CL	; AL&#x3D;11001000B, CF&#x3D;1</span><br><span class="line">ROR AL,CL	; AL&#x3D;01100100B, CF&#x3D;0</span><br></pre></td></tr></table></figure>
+<p>图示如下：<br><img src="http://c.biancheng.net/uploads/allimg/190509/4-1Z5091H21Y21.gif" alt="ROR" title="ROR"></p>
+<h4 id="带进位的循环移位指令"><a href="#带进位的循环移位指令" class="headerlink" title="带进位的循环移位指令"></a>带进位的循环移位指令</h4><p><strong>带进位的循环左移指令</strong><code>RCL</code>，aka. <em>Rotate Left Through Carry</em>，目的操作数所有数位向左移动，最高位移入<code>CF</code>标志位，而原<code>CF</code>标志位中的数值移到最低位。如果将进位标志位看作目的操作数的最高位，那么<code>RCL</code>实质上相当于<code>ROL</code>指令。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,91H	; AL&#x3D;10010001B, CF&#x3D;0</span><br><span class="line">MOV CL,1	; CL&#x3D;1</span><br><span class="line">RCL AL,CL	; AL&#x3D;00100010B, CF&#x3D;1</span><br><span class="line">RCL AL,CL	; AL&#x3D;01000101B, CF&#x3D;0</span><br></pre></td></tr></table></figure>
+<p>图示如下：<br><img src="http://c.biancheng.net/uploads/allimg/190509/4-1Z5091I944551.gif" alt="RCL" title="RCL"><br><strong>带进位的循环右移指令</strong><code>RCR</code>，aka. <em>Rotate Right Through Carry</em>，目的操作数所有数位向右移动，最低位移入<code>CF</code>标志位，而原<code>CF</code>标志位中的数值移到最高位。如果将进位标志位看作目的操作数的最低位，那么<code>RCR</code>实质上相当于<code>ROR</code>指令。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,91H	; AL&#x3D;10010001B, CF&#x3D;0</span><br><span class="line">MOV CL,1	; CL&#x3D;1</span><br><span class="line">RCL AL,CL	; AL&#x3D;01001000B, CF&#x3D;1</span><br><span class="line">RCL AL,CL	; AL&#x3D;10100100B, CF&#x3D;0</span><br></pre></td></tr></table></figure>
+<p>图示如下：<br><img src="http://c.biancheng.net/uploads/allimg/190509/4-1Z5091J2203T.gif" alt="RCR" title="RCR"></p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>为了方便比较节省时间，只使用<code>SHR</code>、<code>SAR</code>、<code>ROR</code>和<code>RCR</code>指令将十六进制数<code>9DH</code>向右移动两位(左移同理<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>)，并利用<a href="https://callmemengmeng.github.io/2020/04/11/%E5%AD%97%E9%95%BF%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BA%8C%E5%85%AB%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%8E%E8%BE%93%E5%87%BA/">前文</a>提到的各位输出方法，将结果显示在屏幕上。</p>
+<h3 id="移位分析"><a href="#移位分析" class="headerlink" title="移位分析"></a>移位分析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,9DH	; AL &#x3D;  10011101B, CF&#x3D;0 </span><br><span class="line">SHR AL,2	; AL -&gt; 01001110B, CF&#x3D;1 -&gt; 00100111B, CF&#x3D;0</span><br><span class="line">SAR AL,2	; AL -&gt; 11001110B, CF&#x3D;1 -&gt; 11100111B, CF&#x3D;0</span><br><span class="line">ROR AL,2	; AL -&gt; 11001110B, CF&#x3D;1 -&gt; 01100111B, CF&#x3D;0</span><br><span class="line">RCR AL,2	; AL -&gt; 01001110B, CF&#x3D;1 -&gt; 10100111B, CF&#x3D;0</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><code>9DH</code>=<code>10011101B</code>，分别使用<code>SHR</code>、<code>SAR</code>、<code>ROR</code>和<code>RCR</code>指令移动两位后，结果如下：<br><img src="/2020/04/20/Shift-Commands/RESULTS.jpg" alt="RESULTS" title="Results"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><details>
+<summary>点击查看代码</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">DATA SEGMENT</span><br><span class="line">    BUFF DB 4 DUP(0)        </span><br><span class="line">    NUMB DB 9DH   </span><br><span class="line">    MES0 DB 0DH,0AH,&#39;THE RESULT OF COMMAND &lt;SHR AL,2&gt;: $&#39;</span><br><span class="line">    MES1 DB 0DH,0AH,&#39;THE RESULT OF COMMAND &lt;SAR AL,2&gt;: $&#39;</span><br><span class="line">    MES2 DB 0DH,0AH,&#39;THE RESULT OF COMMAND &lt;ROR AL,2&gt;: $&#39;</span><br><span class="line">    MES3 DB 0DH,0AH,&#39;THE RESULT OF COMMAND &lt;RCR AL,2&gt;: $&#39;   </span><br><span class="line">    MES4 DB 0DH,0AH,&#39;CF: 0 $&#39;</span><br><span class="line">DATA ENDS      </span><br><span class="line"></span><br><span class="line">STACK SEGMENT PARA STACK &#39;STACK&#39;</span><br><span class="line">    DB 10 DUP(0)</span><br><span class="line">STACK ENDS</span><br><span class="line"></span><br><span class="line">CODE SEGMENT</span><br><span class="line">    ASSUME CS:CODE,DS:DATA</span><br><span class="line">START:</span><br><span class="line">    MOV AX,DATA</span><br><span class="line">    MOV DS,AX</span><br><span class="line">    LEA SI,BUFF </span><br><span class="line">    MOV CL,2        ; SHIFT&#x2F;ROTATE 9DH 2 BITS TO RIGHT</span><br><span class="line">    MOV AL,NUMB   </span><br><span class="line">    </span><br><span class="line">    PUSH AX</span><br><span class="line">    PUSH AX</span><br><span class="line">    PUSH AX </span><br><span class="line">    PUSH AX</span><br><span class="line">           </span><br><span class="line">    POP AX </span><br><span class="line">    SHR AL,CL      ; THE RESULT OF &#39;SHR&#39;</span><br><span class="line">    MOV [SI],AL</span><br><span class="line">    INC SI</span><br><span class="line">    </span><br><span class="line">    POP AX</span><br><span class="line">    SAR AL,CL     ; THE RESULT OF &#39;SAR&#39;</span><br><span class="line">    MOV [SI],AL  </span><br><span class="line">    INC SI     </span><br><span class="line"></span><br><span class="line">    POP AX</span><br><span class="line">    ROR AL,CL     ; THE RESULT OF &#39;ROR&#39;                 </span><br><span class="line">    MOV [SI],AL  </span><br><span class="line">    INC SI </span><br><span class="line">    </span><br><span class="line">    POP AX</span><br><span class="line">    RCR AL,CL     ; THE RESULT OF &#39;RCR&#39;</span><br><span class="line">    MOV [SI],AL  </span><br><span class="line">  </span><br><span class="line">NEXT:</span><br><span class="line">    LEA SI,BUFF   ; CALL THE &#39;DISP&#39; SUBROUTINE TO DISPLAY EVERY BIT OF [SI]</span><br><span class="line">    </span><br><span class="line">    MOV AH,09H</span><br><span class="line">    MOV DX,OFFSET MES4</span><br><span class="line">    INT 21H</span><br><span class="line">    </span><br><span class="line">    MOV AH,09H</span><br><span class="line">    MOV DX,OFFSET MES0</span><br><span class="line">    INT 21H</span><br><span class="line">    CALL DISP </span><br><span class="line">    INC SI</span><br><span class="line">  </span><br><span class="line">    MOV AH,09H</span><br><span class="line">    MOV DX,OFFSET MES1</span><br><span class="line">    INT 21H  </span><br><span class="line">    CALL DISP</span><br><span class="line">    INC SI</span><br><span class="line"></span><br><span class="line">    MOV AH,09H </span><br><span class="line">    MOV DX,OFFSET MES2</span><br><span class="line">    INT 21H</span><br><span class="line">    CALL DISP </span><br><span class="line">    INC SI   </span><br><span class="line">    </span><br><span class="line">    MOV AH,09H</span><br><span class="line">    MOV DX,OFFSET MES3</span><br><span class="line">    INT 21H</span><br><span class="line">    CALL DISP       </span><br><span class="line">    </span><br><span class="line">QUIT:</span><br><span class="line">    MOV AH,4CH</span><br><span class="line">    INT 21H</span><br><span class="line">           </span><br><span class="line">DISP PROC NEAR  </span><br><span class="line">    MOV DH,[SI] </span><br><span class="line">    MOV CX,08H</span><br><span class="line">    MOV AH,02H</span><br><span class="line">AGAIN: </span><br><span class="line">    MOV DL,DH</span><br><span class="line">    AND DL,80H </span><br><span class="line">    PUSH CX </span><br><span class="line">    MOV CL,07H</span><br><span class="line">    SHR DL,CL </span><br><span class="line">    ADD DL,30H </span><br><span class="line">    POP CX</span><br><span class="line">    INT 21H </span><br><span class="line">    SHL DH,1</span><br><span class="line">    LOOP AGAIN</span><br><span class="line">    RET</span><br><span class="line">DISP ENDP</span><br><span class="line">    </span><br><span class="line">CODE ENDS</span><br><span class="line">    END START</span><br></pre></td></tr></table></figure>
+</details>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">原理示意图出自<a href="http://c.biancheng.net/view/3589.html" target="_blank" rel="noopener">此处</a>。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">其实是本小子懒癌发作懒得再推左移的情况。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/04/20/Shift-Commands/">https://callmemengmeng.github.io/2020/04/20/Shift-Commands/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        <a href="/tags/%E6%B1%87%E7%BC%96/"># 汇编</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/04/15/Icon-Reconduction/">重构图标</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
