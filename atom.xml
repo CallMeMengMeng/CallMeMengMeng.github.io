@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://callmemengmeng.github.io/"/>
-  <updated>2020-04-21T04:16:02.934Z</updated>
+  <updated>2020-04-21T15:21:32.526Z</updated>
   <id>https://callmemengmeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>联想小新换壳记</title>
+    <link href="https://callmemengmeng.github.io/2020/04/21/Computer-back-cover-maintenance/"/>
+    <id>https://callmemengmeng.github.io/2020/04/21/Computer-back-cover-maintenance/</id>
+    <published>2020-04-21T13:30:13.000Z</published>
+    <updated>2020-04-21T15:21:32.526Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="http://xxx/aplayer.min.css"><script src="http://xxx/aplayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='http://xxx/api.php?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="http://xxx/Meing.min.js"></script><hr><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>三个月前本小子到家正式开启没心没肺的寒假生活，某晚准备将手机中的媒体文件导出整理备份，兴致勃勃掀开笔电盖子的热情被转轴处发出的“喀啪”声浇灭，这才发现B壳(屏幕边框)右下角已经翘起，凑近一看——得，A壳固定转轴的螺柱已经齐根折断。<br><img src="/2020/04/21/Computer-back-cover-maintenance/broken.jpg" alt="断裂处" title="断裂处"><br>啥子热情都没得了，文件整理要为电脑修理让步，手头上这台联想小新700到现在差不多四年，正值青春怎能英年早逝？！放狗搜索发现小新700铰链处断裂似乎是爱国良心想模组设计上的锅，不少网友皆遇到这一问题。在某宝上逛了一圈儿，看中武汉一家店铺的A壳，第二天武汉封城，笔电因此“不要脸”地工作了三个月。昨天下午再次划拉某宝，找到另一家店铺，当机立断下单，没想到今天下午就收到快递送达短信。单纯力气活，基本不涉及技术知识，动手，开工。</p><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul><li>联想小新700-15ISK A壳<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>一个；</li><li>硬卡片一张；</li><li>2mm十字口螺丝刀两把<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</li></ul><h2 id="施工过程"><a href="#施工过程" class="headerlink" title="施工过程"></a>施工过程</h2><p>由于铰链夹在AB壳间，所以首先需要用卡片撬开包裹屏幕的B壳，露出铰链部分。此时能看到屏线、摄像头模组信号线以及天线模组信号线。<br><img src="/2020/04/21/Computer-back-cover-maintenance/open.jpg" alt="open" title="Open"></p><p>用螺丝刀拧开屏幕四角固定在A壳上的螺丝，将屏幕小心放在键盘上。可以看到左边铰链有四颗固定螺丝，而右边只有三颗，所以每次掀开盖子时A壳左右受力并不均衡，三颗螺丝处更容易断裂。拧出这些螺丝，此时A壳已经与铰链分离可以取下。用卡片刮下胶粘在A壳上的天线模组、摄像头模组及传感器，顺着排线槽拉出信号线。至此，原A壳价值已被榨尽可以抛弃。<br><img src="/2020/04/21/Computer-back-cover-maintenance/Debris.jpg" alt="Debris" title="Debris"></p><p>将新的A壳摆放在键盘后，按照走线顺序依次放回各个模组，并按照排线槽整理好信号线。<br><img src="/2020/04/21/Computer-back-cover-maintenance/A-shell.jpg" alt="A-shell" title="A-shell"></p><p>支撑A壳贴紧铰链固定好七颗螺丝，开扣盖子检查螺丝是否松动。接着将屏幕放回原位拧上螺丝后开机，屏幕正常点亮，摄像头信号正常。扣上B壳，整个工作到此结束，笔电续命成功。(<del>就这维修店收费四百，可给本小子省了一大笔老婆本哟</del>)<br><img src="/2020/04/21/Computer-back-cover-maintenance/Done.jpg" alt="Done" title="Done"></p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">在维修中通常把一台笔记本分成4个壳：包着液晶屏的部分是AB壳，其中液晶屏背对着的那面是A壳，液晶屏正面所对着的是B壳，键盘下面的是C壳，最下面一层是D壳。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">另一把螺丝刀预防刮花留作备用。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;http://xxx/aplayer.min.css&quot;&gt;&lt;script src=&quot;http://xxx/aplayer.min.js&quot; clas
+      
+    
+    </summary>
+    
+    
+      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/categories/Blogs/"/>
+    
+    
+      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/tags/Blogs/"/>
+    
+  </entry>
   
   <entry>
     <title>常用的四种位移指令</title>
@@ -127,32 +153,6 @@
       <category term="Blogs" scheme="https://CallMeMengMeng.github.io/tags/Blogs/"/>
     
       <category term="Markdown" scheme="https://CallMeMengMeng.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从一个折腾走向另一个折腾</title>
-    <link href="https://callmemengmeng.github.io/2020/04/08/%E4%BB%8E%E4%B8%80%E4%B8%AA%E6%8A%98%E8%85%BE%E8%B5%B0%E5%90%91%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%8A%98%E8%85%BE/"/>
-    <id>https://callmemengmeng.github.io/2020/04/08/%E4%BB%8E%E4%B8%80%E4%B8%AA%E6%8A%98%E8%85%BE%E8%B5%B0%E5%90%91%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%8A%98%E8%85%BE/</id>
-    <published>2020-04-08T12:50:11.000Z</published>
-    <updated>2020-04-09T01:59:19.040Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="http://xxx/aplayer.min.css"><script src="http://xxx/aplayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='http://xxx/api.php?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="http://xxx/Meing.min.js"></script><hr><p><center><font face="楷体" size="2" color="gray">“人生就是从一个折腾走向另一个折腾。”——Reyes Meng</font></center></p><p>也不知搭错哪根筋，本小子突发奇想揍性大发就要再倒腾倒腾这小破站。其实颠来倒去就一件事儿，从去年配置好<a href="https://hexo.io/zh-cn/index.html" target="_blank" rel="noopener">HEXO</a>苟到今日，有些文章涉及人员指向性略强得考虑给加加密啊。这才有了傍晚前的一通倒腾。有道是知己知彼方能百战不殆，故出恭时手也没闲着放狗搜相关技术贴子，搭眼一瞧这博文加密有现成轮子可用，节省不少体力！</p><h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><p>我的需求很简单只用实现某篇文章输入密码可见即可，HEXO官方插件库中有一款<code>hexo-blog-encrypt</code><a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">插件</a>完美契合，且其安装配置和使用都很方便。</p><h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><p>鉴于本小子暂时还处在盗版<em>Win10</em>的穷学生时代，并不清楚其他<del>(单纯指Mac)</del>平台的安装方式，故下面所有操作均基于<em>Win + Git Bash + npm</em>环境。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-blog-encrypt --save</span><br></pre></td></tr></table></figure><h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>插件下载成功后需要修改HEXO的<code>_config.yml</code>文件，注意不是所使用主题的<code>_config.yml</code>文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## hexo-blog-encrypt</span><br><span class="line">encrypt:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>设置成功后，打开需要加密的文章，在其头部添加如下内容即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: The title of your article</span><br><span class="line">tags: Tags of your article</span><br><span class="line">date: Dates of your writing</span><br><span class="line">password: ReyesMeng</span><br><span class="line">abstract: Here&#39;s something encrypted, password is required to continue reading.</span><br><span class="line">message: Hey, password is required here.</span><br><span class="line">wrong_pass_message: Oh, this is an invalid password. Check and try again, please.</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;http://xxx/aplayer.min.css&quot;&gt;&lt;script src=&quot;http://xxx/aplayer.min.js&quot; clas
-      
-    
-    </summary>
-    
-    
-      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/categories/Blogs/"/>
-    
-    
-      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/tags/Blogs/"/>
     
   </entry>
   

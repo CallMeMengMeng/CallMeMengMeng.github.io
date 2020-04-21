@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>联想小新换壳记 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/NewRM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">联想小新换壳记</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 21, 2020&nbsp;&nbsp;21:30:13</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>三个月前本小子到家正式开启没心没肺的寒假生活，某晚准备将手机中的媒体文件导出整理备份，兴致勃勃掀开笔电盖子的热情被转轴处发出的“喀啪”声浇灭，这才发现B壳(屏幕边框)右下角已经翘起，凑近一看——得，A壳固定转轴的螺柱已经齐根折断。<br><img src="/2020/04/21/Computer-back-cover-maintenance/broken.jpg" alt="断裂处" title="断裂处"><br>啥子热情都没得了，文件整理要为电脑修理让步，手头上这台联想小新700到现在差不多四年，正值青春怎能英年早逝？！放狗搜索发现小新700铰链处断裂似乎是爱国良心想模组设计上的锅，不少网友皆遇到这一问题。在某宝上逛了一圈儿，看中武汉一家店铺的A壳，第二天武汉封城，笔电因此“不要脸”地工作了三个月。昨天下午再次划拉某宝，找到另一家店铺，当机立断下单，没想到今天下午就收到快递送达短信。单纯力气活，基本不涉及技术知识，动手，开工。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>联想小新700-15ISK A壳<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>一个；</li>
+<li>硬卡片一张；</li>
+<li>2mm十字口螺丝刀两把<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</li>
+</ul>
+<h2 id="施工过程"><a href="#施工过程" class="headerlink" title="施工过程"></a>施工过程</h2><p>由于铰链夹在AB壳间，所以首先需要用卡片撬开包裹屏幕的B壳，露出铰链部分。此时能看到屏线、摄像头模组信号线以及天线模组信号线。<br><img src="/2020/04/21/Computer-back-cover-maintenance/open.jpg" alt="open" title="Open"></p>
+<p>用螺丝刀拧开屏幕四角固定在A壳上的螺丝，将屏幕小心放在键盘上。可以看到左边铰链有四颗固定螺丝，而右边只有三颗，所以每次掀开盖子时A壳左右受力并不均衡，三颗螺丝处更容易断裂。拧出这些螺丝，此时A壳已经与铰链分离可以取下。用卡片刮下胶粘在A壳上的天线模组、摄像头模组及传感器，顺着排线槽拉出信号线。至此，原A壳价值已被榨尽可以抛弃。<br><img src="/2020/04/21/Computer-back-cover-maintenance/Debris.jpg" alt="Debris" title="Debris"></p>
+<p>将新的A壳摆放在键盘后，按照走线顺序依次放回各个模组，并按照排线槽整理好信号线。<br><img src="/2020/04/21/Computer-back-cover-maintenance/A-shell.jpg" alt="A-shell" title="A-shell"></p>
+<p>支撑A壳贴紧铰链固定好七颗螺丝，开扣盖子检查螺丝是否松动。接着将屏幕放回原位拧上螺丝后开机，屏幕正常点亮，摄像头信号正常。扣上B壳，整个工作到此结束，笔电续命成功。(<del>就这维修店收费四百，可给本小子省了一大笔老婆本哟</del>)<br><img src="/2020/04/21/Computer-back-cover-maintenance/Done.jpg" alt="Done" title="Done"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">在维修中通常把一台笔记本分成4个壳：包着液晶屏的部分是AB壳，其中液晶屏背对着的那面是A壳，液晶屏正面所对着的是B壳，键盘下面的是C壳，最下面一层是D壳。</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">另一把螺丝刀预防刮花留作备用。</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/04/21/Computer-back-cover-maintenance/">https://callmemengmeng.github.io/2020/04/21/Computer-back-cover-maintenance/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/04/20/Shift-Commands/">常用的四种位移指令</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
