@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>关于散射参数的碎碎念 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/NewRM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">关于散射参数的碎碎念</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 29, 2020&nbsp;&nbsp;11:19:13</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="何为散射参数"><a href="#何为散射参数" class="headerlink" title="何为散射参数"></a>何为散射参数</h2><p>散射参数得从微波系统聊起。</p>
+<p>微波系统的分析有两种途径：从<a href="https://baike.baidu.com/item/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84" target="_blank" rel="noopener">Maxwell方程</a>出发的场分析法和从分布参数出发的路的分析方法。理论上二者殊途同归，但实际微波系统中包括各种元件，其传输特性不均匀，又因其复杂的边界条件，使用场分析法十分麻烦近乎不可能。所以引入“黑盒子”概念，即不关注微波元件的内部场分布而只关心其对系统传输的影响。场路分析结合下，微波网络法应运而生：<strong>将微波元件等效为电抗或电阻，将实际的导波传输系统等效为传输线</strong>。理论分析可解，但实际应用中又犯了难，微波频段压流已无物理意义难以直接测量，且高频情况下很难实现开路或短路，$[Z]$参数和$[Y]$无法直接测量。<br><img src="https://s7.images.keysight.com/is/image/Keysight/WN-E5080A_N5245A-img?$HEROPRESET$" alt="网络分析仪" title="网络分析仪"><br>然而对于与网络相连的各分支传输系统，其端口参考面上入射波和反射波的相对大小和相对相位是可以测量的，我们可以使用网络分析仪直接测量信源匹配下的驻波系数、反射系数及功率等参数。由此，为了描述端口间入射波与反射波的关系，提出散射参数的概念。</p>
+<h2 id="散射矩阵"><a href="#散射矩阵" class="headerlink" title="散射矩阵"></a>散射矩阵</h2><p>散射参数矩阵中存储着入射波、反射波之间的关系，推导散射矩阵有助于理解各散射参数的物理意义。</p>
+<h3 id="散射矩阵的简单推导过程"><a href="#散射矩阵的简单推导过程" class="headerlink" title="散射矩阵的简单推导过程"></a>散射矩阵的简单推导过程</h3><p>从基本的双端口网络入手。<br><img src="/2020/04/29/S-parameter/Dual-port-net.jpg" alt="Dual-port-net" title="Dual-port-net"><br>在$T_1$参考面处，传输线的有效特性阻抗记为$Z_{e1}$，那么端口1的电压电流满足<br>$$<br>\begin{cases}<br>\begin{array}{c}<br>U_1=U_1^{+}+U_1^{-}\\<br>I_1=I_1^{+}-I_1^{-}\\<br>\end{array}<br>\end{cases}<br>$$<br>解得<br>$$<br>\begin{cases}<br>\begin{array}{c}<br>U_1^{+}=\frac{1}{2}[U_1+Z_{e1}I_1]\\<br>U_1^{-}=\frac{1}{2}[U_1-Z_{e1}I_1]\\<br>\end{array}<br>\end{cases}<br>$$<br>引入<strong>归一化入射波、反射波</strong>的概念：</p>
+<ul>
+<li>定义$a_i$为入射波电压的归一化值$u_i^{+}$，定义$b_i$为反射波电压的归一化值$u_i^{-}$。</li>
+</ul>
+<p>于是有<br>$$<br>\begin{cases}<br>\begin{array}{c}<br>a_1=\frac{U_1^{+}}{\sqrt{Z_{e1}}}=\frac{1}{2}[\frac{U_1}{\sqrt{Z_{e1}}}+\sqrt{Z_{e1}}I_1]\\<br>b_1=\frac{U_1^{-}}{\sqrt{Z_{e1}}}=\frac{1}{2}[\frac{U_1}{\sqrt{Z_{e1}}}-\sqrt{Z_{e1}}I_1]\\<br>\end{array}<br>\end{cases}<br>$$<br>对于端口2，同理可得<br>$$<br>\begin{cases}<br>\begin{array}{c}<br>a_2=\frac{U_2^{+}}{\sqrt{Z_{e2}}}=\frac{1}{2}[\frac{U_2}{\sqrt{Z_{e2}}}+\sqrt{Z_{e2}}I_2]\\<br>b_2=\frac{U_2^{-}}{\sqrt{Z_{e2}}}=\frac{1}{2}[\frac{U_2}{\sqrt{Z_{e2}}}-\sqrt{Z_{e2}}I_2]\\<br>\end{array}<br>\end{cases}<br>$$<br>再说回入射波与反射波之间的关系，线性网络中的归一化入射波、反射波之间是线性关系，所以可以列出其线性方程<br>$$<br>\begin{cases}<br>\begin{array}{c}<br>b_1=S_{11}a_1+S_{12}a_2\\<br>b_2=S_{21}a_1+S_{22}a_2\\<br>\end{array}<br>\end{cases}<br>$$<br>写成矩阵形式为<br>$$<br>\begin{bmatrix}<br>b_1\\<br>b_2\\<br>\end{bmatrix}<br>=\begin{bmatrix}<br>S_{11}&amp;S_{12}&amp;S_{13}\\<br>S_{21}&amp;S_{22}&amp;S_{23}\\<br>S_{31}&amp;S_{32}&amp;S_{33}\\<br>\end{bmatrix}<br>\begin{bmatrix}<br>a_1\\<br>a_2\\<br>\end{bmatrix}<br>$$<br>简记为$[b]=[S][a]$，对于散射矩阵中各散射参量物理意义如下：</p>
+<ul>
+<li>$S_{11}=\frac{b_1}{a_1}\bigg|_{a_2=0}$表示端口2匹配时，端口1的反射系数；</li>
+<li>$S_{12}=\frac{b_1}{a_2}\bigg|_{a_1=0}$表示端口1匹配时，端口2到端口1的反向传输系数；</li>
+<li>$S_{21}=\frac{b_2}{a_1}\bigg|_{a_2=0}$表示端口2匹配时，端口1到端口2的正向传输系数；</li>
+<li>$S_{22}=\frac{b_2}{a_2}\bigg|_{a_1=0}$表示端口1匹配时，端口2的反射系数。</li>
+</ul>
+<h3 id="a等零时为何匹配"><a href="#a等零时为何匹配" class="headerlink" title="a等零时为何匹配"></a>a等零时为何匹配</h3><p>以$a_2=0$为例来分析。<br><img src="/2020/04/29/S-parameter/a.jpg" alt="a=0" title="a=0"><br>可以在$T_2$参考面后接一负载$Z_l$，此时$a_2$相当于反射波，$b_2$相当于入射波，当反射波为零时，说明此时负载匹配，传输线工作在行波状态。$a_1=0$同理。</p>
+<h2 id="移动参考面对散射矩阵的影响"><a href="#移动参考面对散射矩阵的影响" class="headerlink" title="移动参考面对散射矩阵的影响"></a>移动参考面对散射矩阵的影响</h2><p>既然参考面由我指定，那么其选取位置不同会对散射参数有何影响呢？</p>
+<p>对于一个多端口网络，不妨假设参考面均向外移动$l_k$距离，此时归一化入射波、反射波满足<br>$$<br>\begin{cases}<br>\begin{array}{c}<br>b_k^{‘}=b_ke^{-\jmath\beta l_k}=b_ke^{-\jmath\theta_k}\\<br>a_k=a_k^{‘}e^{-\jmath\beta l_k}=a_k^{‘}e^{-\jmath\theta_k}\\<br>\end{array}<br>\end{cases}<br>$$<br>即<br>$$<br>\begin{bmatrix}<br>b_1^{‘}\\<br>b_2^{‘}\\<br>\vdots\\<br>b_n^{‘}\\<br>\end{bmatrix}<br>=\begin{bmatrix}<br>{e^{-\jmath{\theta}_1}} &amp; {0} &amp; {\cdots} &amp; {0}\\<br>{0} &amp; {e^{-\jmath{\theta}_2}} &amp; {\cdots} &amp; {0}\\<br>{\vdots} &amp; {\vdots} &amp; {\ddots} &amp; {\vdots}\\<br>{0} &amp; {0} &amp; {\cdots} &amp; {e^{-\jmath{\theta}_n}}\\<br>\end{bmatrix}<br>\begin{bmatrix}<br>b_1\\<br>b_2\\<br>\vdots\\<br>b_n\\<br>\end{bmatrix}<br>=[P][b]$$</p>
+<p>$$<br>\begin{bmatrix}<br>a_1\\<br>a_2\\<br>\vdots\\<br>a_n\\<br>\end{bmatrix}<br>=\begin{bmatrix}<br>{e^{-\jmath{\theta}_1}} &amp; {0} &amp; {\cdots} &amp; {0}\\<br>{0} &amp; {e^{-\jmath{\theta}_2}} &amp; {\cdots} &amp; {0}\\<br>{\vdots} &amp; {\vdots} &amp; {\ddots} &amp; {\vdots}\\<br>{0} &amp; {0} &amp; {\cdots} &amp; {e^{-\jmath{\theta}_n}}\\<br>\end{bmatrix}<br>\begin{bmatrix}<br>a_1^{‘}\\<br>a_2^{‘}\\<br>\vdots\\<br>a_n^{‘}\\<br>\end{bmatrix}<br>=[P][a^{‘}]$$</p>
+<p>由于$[b]=[S][a]$，代入整理有$[b^{‘}]=[P][S][P][a^{‘}]$，亦即$[S^{‘}]=[P][S][P]$，计算矩阵相乘可得<br>$$S_{ij}^{‘}=S_{ij}e^{-\jmath(\theta_{i}+\theta_{j})} \tag{1}$$</p>
+<p>也就是说，<strong>对于无耗传输线，参考面移动不改变散射参数的幅值，只会改变其相位</strong>。</p>
+<h2 id="一道例题"><a href="#一道例题" class="headerlink" title="一道例题"></a>一道例题</h2><h3 id="题设条件"><a href="#题设条件" class="headerlink" title="题设条件"></a>题设条件</h3><p>已知三端口网络在参考面$T_1、T_2、T_3$所确定的散射矩阵$[S]$为<br>$$<br>[S]=\begin{bmatrix}<br>S_{11}&amp;S_{12}&amp;S_{13}\\<br>S_{21}&amp;S_{22}&amp;S_{23}\\<br>S_{31}&amp;S_{32}&amp;S_{33}\\<br>\end{bmatrix}<br>$$<br>现将参考面$T_1$向内移动$\frac{\lambda_{g1}}{2}$至$T_1^{‘}$，参考面$T_2$向外移动$\frac{\lambda_{g2}}{2}$至$T_2^{‘}$处，参考面$T_3$保持不变(设为$T_3^{‘}$)，如图所示，求参考面$T_1^{‘}、T_2^{‘}、T_3^{‘}$所确定网络的散射矩阵$[S^{‘}]$。<br><img src="/2020/04/29/S-parameter/Quiz.jpg" alt="Quiz" title="Quiz"></p>
+<h3 id="分析求解"><a href="#分析求解" class="headerlink" title="分析求解"></a>分析求解</h3><p>根据前面推导，对于无耗传输线，参考面移动不改变散射参数的幅值，只会改变其相位。</p>
+<p>公式(1)可变形为<br>$$S_{ij}^{‘}=S_{ij}e^{-\jmath2\pi[\frac{l_i}{\lambda_{gi}}+\frac{l_j}{\lambda_{gj}}]}$$<br>由于参考面$T_1$向内移动$\frac{\lambda_{g1}}{2}$至$T_1^{‘}$，参考面$T_2$向外移动$\frac{\lambda_{g2}}{2}$至$T_2^{‘}$处，参考面$T_3$保持不变，所以$S_{11}\rightarrow S_{22}$以及$S_{33}$保持不变。</p>
+<p>而$S_{13}^{‘}=S_{13}e^{-\jmath2\pi[\frac{l_1}{\lambda_{g1}}+0]}=S_{13}e^{-\jmath\pi}=-S_{13}$，同理可得$S_{31}^{‘}=-S_{31}、S_{23}^{‘}=-S_{23}、S_{32}^{‘}=-S_{32}$，所以参考面$T_1^{‘}、T_2^{‘}、T_3^{‘}$所确定网络的散射矩阵$[S^{‘}]$为<br>$$<br>[S^{‘}]=\begin{bmatrix}<br>S_{11}&amp;S_{12}&amp;-S_{13}\\<br>S_{21}&amp;S_{22}&amp;-S_{23}\\<br>-S_{31}&amp;-S_{32}&amp;S_{33}\\<br>\end{bmatrix}<br>$$</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/04/29/S-parameter/">https://callmemengmeng.github.io/2020/04/29/S-parameter/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/04/27/Auto-Heater/">EMU8086中模拟简单的热水器</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
