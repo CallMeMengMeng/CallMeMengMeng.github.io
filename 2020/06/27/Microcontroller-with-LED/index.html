@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>基于8086的简单流水灯仿真设计 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/NewRM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">基于8086的简单流水灯仿真设计</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 27, 2020&nbsp;&nbsp;18:29:20</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                                <a href="/categories/Blogs/%E6%B1%87%E7%BC%96/">汇编</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<p><center><font face="楷体" size="2" color="gray"><b>摘要</b></font></center></p>
+<p><font face="楷体" size="2" color="gray">
+本文使用8086CPU作为主控芯片，选择可编程计数器8253A芯片引入计时信号，选择可编程中断控制器8259A产生中断并按照相应的中断服务子程序控制8255A可编程并行接口芯片输出控制信号，驱动电路中的8只LED产生流水灯效果。本课程设计主要包括硬件设计和软件设计，其中所有汇编代码均使用EMU8086编写，硬件电路在<a href="https://www.labcenter.com/" target="_blank" rel="noopener">Proteus7.8</a>中进行搭建仿真，仿真结果显示，本设计中程序与电路运行正常，LED会间隔相同时间后循环点亮。
+</font>
+</p>
+
+<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><h3 id="任务分析"><a href="#任务分析" class="headerlink" title="任务分析"></a>任务分析</h3><p><font size="6">本</font>次设计是基于8086处理器的LED流水灯电路，通过CPU与总线、译码器、8只LED灯以及各接口芯片之间的配合，实现循环点亮的效果。本设计中，8086CPU的主频为1500KHz，由外部时钟频率为2MHz的8253A芯片采用两计数通道级联实现初值N为10000的计数，产生周期为0.005s的方波作为中断触发信号送入8259A中。对该中断控制芯片进行设置，在中断服务子程序对8255A芯片并行口PA输出进行定义，使得PA口八只引脚循环输出高电平从而点亮对应的LED灯。</p>
+<p>软件代码使用汇编语言编写，并在EMU8086中编译产生可执行文件；硬件电路在Proteus7.8中搭建，配合代码中各芯片地址进行电路布线，在引入编译产生的可执行文件后对电路仿真。</p>
+<h3 id="总体思路"><a href="#总体思路" class="headerlink" title="总体思路"></a>总体思路</h3><p>在本设计中8086CPU通过译码电路对各个接口芯片进行片选，并通过总线进行通信，设计思路框图如图所示：<br><img src="/2020/06/27/Microcontroller-with-LED/frame.png" alt="Frame" title="Frame"></p>
+<ul>
+<li><p>在定时模块中，笔者使用了8253A芯片的计数通道0和通道1均采用模式3（即方波发生器）产生定时信号，外部时钟频率$f_{CLK_0}=2MHz$，两计数器初值均为100。</p>
+</li>
+<li><p>在中断模块中，笔者对8259A芯片各控制字以及地址线进行设置，使用IR0引脚引入8253A产生的方波作为触发信号，中断服务子程序INT0的中断类型号设置为40H并使用循环移位指令ROR控制并行口的输出值。</p>
+</li>
+<li><p>在驱动模块中，笔者设置8255A的PA口为输出，其初值为80H以点亮LED8作为初始态，在中断子程序INT0中采用循环移动1位的方法更改PA各端口的输出电平，从而驱动PA口所接的LED灯使之循环点亮。</p>
+</li>
+</ul>
+<h2 id="硬件设计"><a href="#硬件设计" class="headerlink" title="硬件设计"></a>硬件设计</h2><p>笔者在Proteus7.8软件中搭建的电路如下图所示，使用到的元件包括一片8086处理器芯片、3片74273芯片、一片8259A芯片、一片8255A芯片、一片8253A芯片、8只LED二极管和四个非门。为了方便调试8253A的输出波形，故在电路中接入一个示波器。<br><img src="/2020/06/27/Microcontroller-with-LED/circuit.png" alt="Circuit" title="Circuit"></p>
+<p>对于8253A芯片，电路中各计数器以及控制端口的地址如下表：</p>
+<center>
+
+<table>
+<thead>
+<tr>
+<th align="center">端口</th>
+<th align="center">地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">计数器0</td>
+<td align="center">100000B</td>
+</tr>
+<tr>
+<td align="center">计数器1</td>
+<td align="center">100010B</td>
+</tr>
+<tr>
+<td align="center">计数器2</td>
+<td align="center">100100B</td>
+</tr>
+<tr>
+<td align="center">控制端口</td>
+<td align="center">100110B</td>
+</tr>
+</tbody></table>
+</center>
+笔者考虑设置计数器初值为10000，为了更充分体会8253A芯片的使用方式，采用两计数器级联的方式实现，即设置计数器0的外部时钟频率为$f_{CLK_0}=2MHz$，初值为100，输出的OUT0作为计数器1的外部时钟信号，接着设置计数器1的初值也为100，GATE0和GATE1引脚均接高电平，此时OUT1便可以输出周期为0.005s的连续方波信号。
+
+<p>根据上述需求，计数器0和计数器1均工作在方式3，计数初值均为100，采用二进制数表示，所以对应的控制字如下表所示：</p>
+<center>
+
+<table>
+<thead>
+<tr>
+<th align="center">计数器</th>
+<th align="center">控制字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">计数器0</td>
+<td align="center">00010110B</td>
+</tr>
+<tr>
+<td align="center">计数器1</td>
+<td align="center">01010110B</td>
+</tr>
+</tbody></table>
+</center>
+对于8259A芯片，电路中控制端口的奇偶地址分别为10010B和10000B。设置ICW1为边沿触发，使用单片8259A并使用ICW4控制字；中断类型号即ICW2设置为40H；ICW4不使用缓冲方式，采用非特殊的全嵌套方式并且正常结束中断，上述控制字中ICW1写入偶地址，其它写入奇地址。设置中断优先级为非循环方式并发出中断结束命令，OCW2操作字写入偶地址。其命令字如下表所示。
+<center>
+
+<table>
+<thead>
+<tr>
+<th align="center">命令字</th>
+<th align="center">数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ICW1</td>
+<td align="center">00010011B</td>
+</tr>
+<tr>
+<td align="center">ICW2</td>
+<td align="center">40H</td>
+</tr>
+<tr>
+<td align="center">ICW4</td>
+<td align="center">00000001B</td>
+</tr>
+<tr>
+<td align="center">OCW2</td>
+<td align="center">00100000B</td>
+</tr>
+</tbody></table>
+</center>
+对于8055A芯片，电路中设置各端口地址如下表所示。由于设置初始状态为只有PA8输出高电平，所以要求PA口输出工作在方式0，方式选择控制字中其他位默认为0，故控制字应为80H。
+<center>
+
+<table>
+<thead>
+<tr>
+<th align="center">端口</th>
+<th align="center">地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PA</td>
+<td align="center">01000B</td>
+</tr>
+<tr>
+<td align="center">PB</td>
+<td align="center">01010B</td>
+</tr>
+<tr>
+<td align="center">PC</td>
+<td align="center">01100B</td>
+</tr>
+<tr>
+<td align="center">控制字</td>
+<td align="center">01110B</td>
+</tr>
+</tbody></table>
+</center>
+
+<h2 id="软件设计"><a href="#软件设计" class="headerlink" title="软件设计"></a>软件设计</h2><h3 id="程序流程图"><a href="#程序流程图" class="headerlink" title="程序流程图"></a>程序流程图</h3><p>根据前面硬件电路的设计以及总体思路要求，程序主流程图以及相应的中断服务子程序INT0流程图如下所示。<br><img src="/2020/06/27/Microcontroller-with-LED/flowchart.png" alt="Flowchart" title="Flowchart"></p>
+<h3 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h3><details>
+<summary>点击查看代码</summary>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">DATA SEGMENT </span><br><span class="line">DATA ENDS</span><br><span class="line"></span><br><span class="line">STACK SEGMENT STACK</span><br><span class="line">    ST DB 10 DUP(0)</span><br><span class="line">STACK ENDS</span><br><span class="line"></span><br><span class="line">CODE SEGMENT</span><br><span class="line">    ASSUME CS:CODE,DS:DATA,SS:STACK</span><br><span class="line">START: </span><br><span class="line">    MOV AX,DATA</span><br><span class="line">    MOV DS,AX</span><br><span class="line">    MOV DX,100110B    ;8253 INIT</span><br><span class="line">	MOV AL,00010110B  ;COUNTER0,MODE3,BINARY-DIGITS</span><br><span class="line">	OUT DX,AL</span><br><span class="line">	      </span><br><span class="line">	MOV DX,100000B    ; COUNTER0</span><br><span class="line">	MOV AL,64H      ; 100</span><br><span class="line">	OUT DX,AL</span><br><span class="line">	      </span><br><span class="line">	MOV DX,100110B    ;8253 INIT</span><br><span class="line">	MOV AL,01010110B  ;COUNTER1,MODE3,BINARY-DIGITS</span><br><span class="line">	OUT DX,AL</span><br><span class="line">	      </span><br><span class="line">	MOV DX,100010B    ; COUNTER1</span><br><span class="line">	MOV AL,64H      ; 100</span><br><span class="line">	OUT DX,AL      </span><br><span class="line">	      </span><br><span class="line">    MOV DX,01110B      ; 8255初始化</span><br><span class="line">    MOV AL,80H      ; A口输出，方式0,B OUT,MODE 0</span><br><span class="line">    OUT DX,AX</span><br><span class="line">          </span><br><span class="line">    MOV BL,80H      ; LED0灯亮(高电平灯亮)  </span><br><span class="line">    MOV AL,BL</span><br><span class="line">    MOV DX,01000B</span><br><span class="line">    OUT DX,AL       ;PA7灯亮       </span><br><span class="line">                </span><br><span class="line">    MOV AL,13H      ; 00010011B，ICW1：边沿触发，单片，要ICW4</span><br><span class="line">    MOV DX,10000B   ; 8259地址</span><br><span class="line">    OUT DX,AL</span><br><span class="line">    MOV AL,40H      ; ICW2中断类型号为40H</span><br><span class="line">    MOV DX,10010B</span><br><span class="line">    OUT DX,AL</span><br><span class="line">    MOV AL,01H      ; ICW4不用缓冲方式，正常中断结束，非特殊的全嵌套方式</span><br><span class="line">    OUT DX,AL</span><br><span class="line">             </span><br><span class="line">    MOV AX,0 </span><br><span class="line">    MOV DS,AX       ; 数据段清零        </span><br><span class="line">          </span><br><span class="line">    LEA AX,INT0     ; 写8259中断程序的入口地址</span><br><span class="line">    MOV DS:[4*40H],AX   ; 把中断服务程序的入口地址偏移量送中断向量表</span><br><span class="line">    MOV AX,CS</span><br><span class="line">    MOV DS:[4*40H+2],AX ; 把中断服务程序的入口地址段地址送中断向量表    </span><br><span class="line"></span><br><span class="line">    STI                 ; 开中断</span><br><span class="line">AGAIN:</span><br><span class="line">    MOV DX,8000H</span><br><span class="line">    MOV AL,40H</span><br><span class="line">    OUT DX,AL</span><br><span class="line">    JMP AGAIN</span><br><span class="line">                </span><br><span class="line">                </span><br><span class="line">INT0 PROC NEAR      ; 8259中断服务程序   </span><br><span class="line">    ROR BL,1        ; 右循环1次</span><br><span class="line">    MOV AL,BL</span><br><span class="line">    MOV DX,01000B   </span><br><span class="line">    OUT DX,AL       ; PA口灯亮       </span><br><span class="line">          </span><br><span class="line">    MOV DX,10000B </span><br><span class="line">    MOV AL,20H      ; OCW2发结束命令EOI&#x3D;1</span><br><span class="line">    OUT DX,AL</span><br><span class="line">          </span><br><span class="line">    IRET</span><br><span class="line">INT0 ENDP   </span><br><span class="line">CODE ENDS</span><br><span class="line">    END START</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h2 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h2><p>汇编程序在EMU8086中成功编译，将可执行文件写入Proteus7.8软件的8086CPU中仿真后发现，8只LED灯可以被循环点亮。<br><img src="/2020/06/27/Microcontroller-with-LED/animate.gif" alt="Animation" title="Animation"></p>
+<p>8253A计数器输出波形如下所示。<br><img src="/2020/06/27/Microcontroller-with-LED/wave.png" alt="Wave" title="Wave"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/06/27/Microcontroller-with-LED/">https://callmemengmeng.github.io/2020/06/27/Microcontroller-with-LED/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        <a href="/tags/%E6%B1%87%E7%BC%96/"># 汇编</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/06/01/Caeser-Cryption/">简单凯撒加密算法的汇编实现</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
