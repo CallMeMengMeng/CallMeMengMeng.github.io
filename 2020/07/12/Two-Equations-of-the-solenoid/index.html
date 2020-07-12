@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Powered by Hexo.">
+
+
+
+<title>空心螺线管的电感公式 | ReyesMeng&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/NewRM.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
+    
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'dth4cbv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="ReyesMeng's Blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Reyes Meng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Reyes Meng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                    <a class="menu-item" href="https://reyesmeng2.github.io/" target="_blank" rel="noopener">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">空心螺线管的电感公式</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">ReyesMeng</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 12, 2020&nbsp;&nbsp;13:56:26</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blogs/">Blogs</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <hr>
+<p>这是一篇简短的小笔记。</p>
+<p>继宅家研读完几本微波技术与天线设计的书籍后，本小子自觉在微波射频领域刚得皮毛，遂寻找其他教参进一步学习。这两天偶得一书——<em>《RF Circuit Design: Theory and Application》</em>，其中绕开MAXWELL方程组的“场”分析方法，从低频向高频，从集总到分布，以“路”切入，娓娓道来，收获良多。</p>
+<p>为了比较电感元件在直流电路与高频电路中的区别，书中随附例题涉及到电感$L$的计算公式。初等电路的电感公式在《大学物理》以及《电路分析》等课程中都有涉及，弱鸡如我没有记住其公式细节，遂放狗搜索，没想到此行除了电感公式外还有其他收获。</p>
+<p>在一论坛中挖到了八年前的帖子，里面给出了一个有趣的问题，截图如下：<br><img src="/2020/07/12/Two-Equations-of-the-solenoid/post.jpg" alt="Image" title="Image"></p>
+<p>乍眼一看，这两个公式似乎相悖，本小子特地跑去文中提到的<a href="http://en.wikipedia.org/wiki/Solenoid" target="_blank" rel="noopener">Wiki</a>和<a href="http://farside.ph.utexas.edu/teaching/em/lectures/node83.html" target="_blank" rel="noopener">Texas</a>网站取证，终于发现了其中猫腻。两个公式都是正确的，而且两个公式转化后是相同的，其表面相悖的原因在于两公式中的线圈匝数$N$定义不同：</p>
+<ul>
+<li>Wiki上所给公式中的匝数$N$是”… the number of turns …”，即整个空心螺线管的线圈匝数，</li>
+<li>Texas给出的公式中$N$是”… has $N_1$ turns per unit length …”，即单位长度螺线管所含线圈的匝数，</li>
+</ul>
+<p>所以说，Wiki上电感公式可作进一步转化：<br>$$L=\mu_0\frac{N^2A}{l}\stackrel{N=N_1l}{=}\mu_0\frac{(N_1l)^2A}{l}=\mu_0N_1^2Al$$<br>便得到了Texas给出的电感公式。<strong>看书得细致，条件说明很重要！</strong></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>ReyesMeng</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://callmemengmeng.github.io/2020/07/12/Two-Equations-of-the-solenoid/">https://callmemengmeng.github.io/2020/07/12/Two-Equations-of-the-solenoid/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Vaya con <strong>Dios<strong>.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Blogs/"># Blogs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/06/27/Microcontroller-with-LED/">基于8086的简单流水灯仿真设计</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© ReyesMeng | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="开发者https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
