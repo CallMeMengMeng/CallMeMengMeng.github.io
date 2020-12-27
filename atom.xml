@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://callmemengmeng.github.io/"/>
-  <updated>2020-07-24T08:13:13.617Z</updated>
+  <updated>2020-12-27T03:15:36.243Z</updated>
   <id>https://callmemengmeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我们只是—好久不见</title>
+    <link href="https://callmemengmeng.github.io/2020/12/27/See-You-Again/"/>
+    <id>https://callmemengmeng.github.io/2020/12/27/See-You-Again/</id>
+    <published>2020-12-27T02:18:11.000Z</published>
+    <updated>2020-12-27T03:15:36.243Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="http://xxx/aplayer.min.css"><script src="http://xxx/aplayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='http://xxx/api.php?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="http://xxx/Meing.min.js"></script><p>从上篇更文至今相距整整五个月，这段时间只字未写，忙吗？忙。忙什么呢？去哪里忙活？这里面的事情有太多太多值得写出来了。五个月里接触到的人和事比我过去四年以来加和都多，认识了更多的人，结交了一撮新朋友，做到了很多事情，也结结实实重铸了自己的性格，有得也有舍。</p><p>我逐渐明白，经历过的事情总会在记忆的岩壁上刻下深深浅浅的印迹，纵然会慢慢淡忘，但它们总会在那里。只需等待一个契机、一个触发的媒介，那些尘封的记忆便如湖底气泡翻涌而上愈来愈大越来越清晰。</p><p>给我时间，坐下来，将缺失的时间慢慢诉诸纸上，我们只是—好久不见。</p><p><img src="/2020/12/27/See-You-Again/Aofan.jpeg" alt="Aofan" title="Aofan Center"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;http://xxx/aplayer.min.css&quot;&gt;&lt;script src=&quot;http://xxx/aplayer.min.js&quot; clas
+      
+    
+    </summary>
+    
+    
+      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/categories/Blogs/"/>
+    
+    
+      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/tags/Blogs/"/>
+    
+  </entry>
   
   <entry>
     <title>五日合租记</title>
@@ -125,32 +151,6 @@
       <category term="Blogs" scheme="https://CallMeMengMeng.github.io/tags/Blogs/"/>
     
       <category term="汇编" scheme="https://CallMeMengMeng.github.io/tags/%E6%B1%87%E7%BC%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈流星余迹通信(MBC)</title>
-    <link href="https://callmemengmeng.github.io/2020/05/30/Meteor-Burst-Communication/"/>
-    <id>https://callmemengmeng.github.io/2020/05/30/Meteor-Burst-Communication/</id>
-    <published>2020-05-30T08:21:59.000Z</published>
-    <updated>2020-06-01T02:15:20.218Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="http://xxx/aplayer.min.css"><script src="http://xxx/aplayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='http://xxx/api.php?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="http://xxx/Meing.min.js"></script><hr><h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>去年学习《移动通信》课程的<a href="https://callmemengmeng.github.io/2019/09/16/%E5%BE%AE%E6%B3%A2%E9%A2%91%E6%AE%B5%E5%AE%B6%E8%B0%B1/#fnref:1">时候</a>，就有听到过“流星余迹通信”的鼎鼎大名，当时还计划着选这个题目做课程设计，后来赶作业的时候忘了个一干二净，也就没在坚持下去。这两天手头有了点闲暇时间，遂重启对流星余迹通信方面知识的学习。和初看到这个课题名字时一样，我认为使用天上的流星扫过天际产生的“星尾”反射信号进行通信未免有太多不确定性，过于科幻异想天开。但本小子真没想到，这种通信方式早已应用于军方应急通信中。</p><p>将信号射向流星的”尾巴”再反射回地面目的接收机的想法并不新鲜，从上个世纪五十年代早期开始，多种支持这种功能的通信系统如雨后春笋般陆续被设计出。伴随着研究的不断深入，如今对于火腿(<em>无线电通信爱好者</em>)们来说完全可以使用这些方法进行通联。</p><h2 id="流余通信的定义"><a href="#流余通信的定义" class="headerlink" title="流余通信的定义"></a>流余通信的定义</h2><p><strong>流星余迹通信(Meteor Burst Communications)</strong>，简称流余通信，是一种利用大气层对陨石电离形成的柱状电离云反射无线电波进而传输信息的方法<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</p><p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181227/3992d002584c4d8583f59ea3c3a1febf.jpeg" alt="Trail" title="Trail"></p><p>太空中的陨石(或其它星体)以与日地轨道重合的方式绕太阳运行，当这些陨石追上地球或轨道中的陨石被地球赶上时，这些星体就会被地球捕获，以大约每秒十至七十五公里的速度进入大气层。一般来说，这些星体会以每天二十至八十亿颗或接近每秒50000颗的频率出现。闯入地球的星体因与大气层碰撞产生摩擦，带来的超高温度导致了流星的”蒸发”。蒸发过程产生的物质受到周围大气层的限制，会将电子从汽化的原子中剥离出来，导致流星后形成了一条由带正电荷的离子和自由电子组成的尾迹。这种现象一般发生在$115Km$的高空，到了$85Km$处流星便燃烧殆尽，电离踪迹的持续时间从几秒到百分之一秒不等，这正为流余通信提供了机会<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</p><h2 id="流余通信的优缺点"><a href="#流余通信的优缺点" class="headerlink" title="流余通信的优缺点"></a>流余通信的优缺点</h2><h3 id="流余通信的优点"><a href="#流余通信的优点" class="headerlink" title="流余通信的优点"></a>流余通信的优点</h3><ul><li>保密性强。在MBC系统中，无线电波反射具有明显的方向性，而流星出现的不可预测性也可以有效预防信号被窃听。</li><li>通信距离远。目前有研究表明，使用功率为500瓦至几千瓦的发射机搭配八木天线，流余通信可以实现$1600Km$以内的通信，最大通信距离可达$2300Km$。</li><li>发射功率较小。 由于流余通信采用”断续式”通信方式，在通信过程中只有大约十分之一的时间全功率工作，地面发射机在剩余时间处于待机状态，这样可以减少基站的投入成本。</li></ul><h3 id="流余通信的缺点"><a href="#流余通信的缺点" class="headerlink" title="流余通信的缺点"></a>流余通信的缺点</h3><ul><li>低数据传速。这是流余通信最明显的缺点。流余通信码速其实并不慢，可以达到$2.0-4.8Kbps$，但是由于需要消耗时间来寻找可用作通信的流星余迹，大多数流余通信系统的平均传输信息速率只能达到每分钟$100$个实际字。如果用户需要传输大量数据，MBC很可能并不是一个很好的选择。</li><li>无法很好兼容某些类型的信号。流余通信无法很好的兼容语音信号，由于等待时间的存在，语音通信会被迫分割为多个片段。这就导致用户一次只能接听到15个字，然后必须间隔30秒钟等待下一条流星余迹的出现。</li></ul><h2 id="流余通信系统的作用过程"><a href="#流余通信系统的作用过程" class="headerlink" title="流余通信系统的作用过程"></a>流余通信系统的作用过程</h2><p><img src="/2020/05/30/Meteor-Burst-Communication/MBC.gif" alt="MBC" title="MBC"></p><p>这条电离痕迹通常寿命很短，因此使用的通信系统必须能够检测合适存在路径并在发射机和接收机之间链接成功后发送高速信号。典型的MBC系统的运行分为多个阶段<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p><p>首先，发射机将发出探测信号，探测信号需要进行编码来确保通信安全且不易被破坏。流星出现时会将这个探测信号反射出去，远程接收机收到信号后解码，之后再向发射机发送编码信号确认搭建链路。</p><p>链路验证搭建后，两地基站便可以在一个或两个方向上交换数据。由于链路存在时间和流星余迹的存在时间直接挂钩只有十分之几秒，所以要求数据传输速率足够高，且需要具有恒定的检错能力。当流星余迹因为扩散导致电子密度降低时，链路便逐渐解体断开。</p><p>链路断开后，发射机继续发送编码后的探测信号，搜索下一条支持通信的流星余迹。</p><h2 id="流余信道的基本模型"><a href="#流余信道的基本模型" class="headerlink" title="流余信道的基本模型"></a>流余信道的基本模型</h2><p>流星余迹信道是信号通过流星余迹内部离子或电子柱进行散射或反射的物理通道。按照流星余迹内的电子线密度(单位$e/m$)，可以将流星余迹分为<strong>欠密类流星余迹</strong>和<strong>过密类流星余迹</strong>。前者是指电子线密度小于$10^{14}e/m$的流星余迹，后者是指电子线密度大于$10^{14}e/m$的流星余迹<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>。</p><p>欠密类流星余迹是由体积较小的流星体与大气层摩擦产生，其特征为：电子线密度小、发生过程极短只有几百毫秒到1秒、信号强度在开始阶段迅速达到峰值之后按照近似指数规律逐渐衰减。过密类流星余迹是由体积较小的流星体与大气层摩擦产生，其特征为：电子线密度大、持续时间较长、信号强度在开始阶段迅速上升并逐渐趋于稳定之后转化为欠密类型快速下降。</p><p>信号会在信道中发生功率衰减，其衰减情况与流星余迹内电子线密度的变化最为相关，下面分别给出两种信道的基本数学模型。</p><h3 id="欠密类流余信道基本模型"><a href="#欠密类流余信道基本模型" class="headerlink" title="欠密类流余信道基本模型"></a>欠密类流余信道基本模型</h3><p>查阅文献<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>知，目前常用的欠密类流星余迹信道数学模型由Eshleman等在二十世纪五十年代初提出：$$P_R(t)=P_R(0)e^{-\frac{t}{\tau}}$$<br>其中，$P_R(t)$表示接收信号功率，$P_R(0)$表示接收到的余迹反射电波的初始功率，$\tau$表示接收功率的衰减因子。其计算公式为：<br>$$P_R(0)=\frac{P_TG_TG_R\lambda^3q^2r_e^2\sin^2\alpha}{16\pi^2R_TR_R(R_T+R_R)(1-\cos^2\beta\sin^2\phi)}$$ $$\tau=\frac{\lambda^2\sec^2\phi}{32\pi^2D}$$</p><h3 id="过密类流余信道基本模型"><a href="#过密类流余信道基本模型" class="headerlink" title="过密类流余信道基本模型"></a>过密类流余信道基本模型</h3><p>Hines和Forsythe给出了过密类流余信道的数学模型：$$P_R(t)=P_R(0)\bigg[Dtln\frac{r_eq\lambda^2\sec^2\phi}{4\pi^3Dt}\bigg]^{0.5}$$<br>其中，接收到的余迹反射电波的初始功率由下式给出：<br>$$P_R(0)=\frac{P_TG_TG_R\lambda^3q^{\frac{1}{2}}r_e^{\frac{1}{2}}\sin^2\alpha}{16\pi^2R_TR_R(R_T+R_R)(1-\cos^2\beta\sin^2\phi)}$$</p><p>上面各式涉及参数的定义见下表。</p><center><table><thead><tr><th align="center">参数</th><th align="center">定义</th></tr></thead><tbody><tr><td align="center">$P_T$</td><td align="center">发送信号功率</td></tr><tr><td align="center">$G_T$</td><td align="center">发送天线增益</td></tr><tr><td align="center">$G_R$</td><td align="center">接收天线增益</td></tr><tr><td align="center">$\lambda$</td><td align="center">信号工作波长</td></tr><tr><td align="center">$q$</td><td align="center">电子线密度</td></tr><tr><td align="center">$D$</td><td align="center">流星柱体的扩散系数</td></tr><tr><td align="center">$R_T$</td><td align="center">发送端到流星余迹平面切点间的距离</td></tr><tr><td align="center">$R_R$</td><td align="center">接收端到流星余迹平面切点间的距离</td></tr><tr><td align="center">$\beta$</td><td align="center">余迹电场矢量和平面之间的夹角</td></tr><tr><td align="center">$\alpha$</td><td align="center">余迹电场矢量和入射波电子矢量之间的夹角</td></tr><tr><td align="center">$2\phi$</td><td align="center">入射波与反射波之间的夹角</td></tr><tr><td align="center">$t$</td><td align="center">时间变量</td></tr><tr><td align="center">$r_e$</td><td align="center">常量$0.8852\times10^{-14}$</td></tr></tbody></table></center><h2 id="流余通信的研究意义以及研究现状"><a href="#流余通信的研究意义以及研究现状" class="headerlink" title="流余通信的研究意义以及研究现状"></a>流余通信的研究意义以及研究现状</h2><p>由于流余通信具有突发性强、通信距离较远、传输速率低等特点，所传输的信息不易被截获，具有极强的隐蔽性。在核爆等复杂电磁环境中仍能保证较好的通信质量，这使之在军用场合成为最低限度应急通信保障的一种重要手段。此外，在极地地区，北极光和电离层干扰严重，传统的通信系统因大量噪音和干扰的存在质量严重劣化，而抗扰性能强大的流余系统可以在任意经纬度获得足够的数据传输通道。</p><p>据悉，英美等国的研究员正在建设一个覆盖西欧与部分东欧国家的流星余迹通信网。俄罗斯正在开发支持文本和语音传输的流余移动系统，其通信设备只有笔记本大小，最快将于2020年投入使用<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>。”ALE”的公司计划使用人工卫星，实现一个叫做<a href="https://star-ale.com/news/2017/11/07/000044.html" target="_blank" rel="noopener">“Sky Canvas”的计划</a>，在这个计划中，小卫星将携带着成百上千的金属粒子，在需要的时候施放，为某地的夜空增添无数的人工流星，据称，该项目于2019年进行第一次试验并计划于东京奥运会的开幕式上进行表演<sup id="fnref:7"><a href="#fn:7" rel="footnote">7</a></sup>。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">解放军新闻传播中心. 流星余迹通信，保密性更强.<a href="https://www.sohu.com/a/295537842" target="_blank" rel="noopener">https://www.sohu.com/a/295537842_628598</a>,2019-2-19.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">NSA. <a href="https://www.nsa.gov/Portals/70/documents/news-features/declassified-documents/cryptologic-quarterly/meteo_burst.pdf" target="_blank" rel="noopener">Meteor Burst Communications: An Ignored Phenomenon? </a> 1990.</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">Meteor scatter or meteor burst communications.</span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">李赞, 刘增基, 沈健. 流星余迹通信理论与应用[M]. 北京: 电子工业出版社, 2011: 24-28.</span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">夏冰, 李琳琳, 郑燕山. 流星余迹信道建模与仿真分析[J]. 研究与开发, 2016-5-25.</span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">观察者网.俄罗斯将在北极地区投入流星余迹通讯设备[EB/OL].<a href="https://www.guancha.cn/military-affairs/2019_09_26_519376.shtml?s=zwyxgtjbt" target="_blank" rel="noopener">https://www.guancha.cn/military-affairs/2019_09_26_519376.shtml?s=zwyxgtjbt</a>,2019-9-26.</span><a href="#fnref:6" rev="footnote"> ↩</a></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">7.</span><span style="display: inline-block; vertical-align: top;">李俊勇.使用流星进行的无线电通信.<a href="https://www.pttcn.net/a/zixun/guona/2017/0212/25429.html" target="_blank" rel="noopener">https://www.pttcn.net/a/zixun/guona/2017/0212/25429.html</a>,2017-2.</span><a href="#fnref:7" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;http://xxx/aplayer.min.css&quot;&gt;&lt;script src=&quot;http://xxx/aplayer.min.js&quot; clas
-      
-    
-    </summary>
-    
-    
-      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/categories/Blogs/"/>
-    
-    
-      <category term="Blogs" scheme="https://CallMeMengMeng.github.io/tags/Blogs/"/>
     
   </entry>
   
